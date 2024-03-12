@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -11,12 +11,14 @@ import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import Navebar from "../navebar/Navebar";
 import Footer from "../footer/Footer";
 import Live from "../live/Live";
+import Header from "../header/Header";
 import { InfiniteMovingCardsDemo } from "../cards/InfiniteMovingCardsDemo";
 
 function Main() {
   const [counter, setCounter] = useState(false);
   return (
     <div>
+      <Header />
       <div className="w-[80vw] h-[100vh]">
         <div className="w-[80vw] h-[600px]">
           <Swiper

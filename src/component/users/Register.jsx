@@ -33,7 +33,6 @@ function Register() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    localStorage.setItem("formData", JSON.stringify(formData));
     try {
       const backendURL = "https://milanbackend-7gvf.onrender.com";
       axios.post(`${backendURL}/api/register`, formData);
