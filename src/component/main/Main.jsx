@@ -28,7 +28,7 @@ function Main() {
             }}
             navigation={true}
             modules={[Autoplay, Pagination, Navigation]}
-            className="w-[100vw] h-[100%] "
+            className="w-[100vw] h-[100%] mt-1 "
           >
             <div className="">
               <SwiperSlide>
@@ -73,7 +73,7 @@ function Main() {
             </div>
           </Swiper>
         </div>
-        <div className="grid place-items-center w-[100vw] h-[700px] bg-white  border border-blue-500 ">
+        <div className="grid place-items-center w-[100vw] h-[700px] bg-white ">
           <InfiniteMovingCardsDemo />
           <div className="flex justify-between m-10 w-[80vw]">
             <div className="text-center">
