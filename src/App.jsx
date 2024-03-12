@@ -6,6 +6,8 @@ import Main from "./component/main/Main";
 import RegisterPage from "./pages/RegisterPage";
 import Live from "./component/live/Live";
 import Payment from "./component/payment/Payment";
+import Header from "./component/header/Header";
+import Footer from "./component/footer/Footer";
 
 function App() {
   return (
@@ -18,6 +20,7 @@ function App() {
         <Route path="/Live" element={<Live />} />
         <Route path="/Payment" element={<Payment />} />
       </Routes>
+      <Footer />
     </>
   );
 }
