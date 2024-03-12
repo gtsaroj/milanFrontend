@@ -17,61 +17,61 @@ export function InfiniteMovingCardsDemo() {
 const testimonials = [
   {
     quote:
-      "It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair.",
-    name: "Charles Dickens",
-    title: "A Tale of Two Cities",
+      "Absolutely stellar service! Exceeded my expectations by miles. Can't recommend enough.",
+    name: "Rahul",
+    title: "Mumbai, India",
   },
   {
     quote:
-      "To be, or not to be, that is the question: Whether 'tis nobler in the mind to suffer The slings and arrows of outrageous fortune, Or to take Arms against a Sea of troubles, And by opposing end them: to die, to sleep.",
-    name: "William Shakespeare",
-    title: "Hamlet",
+      "Product quality was superb, arrived promptly. Will definitely be a repeat customer.",
+    name: "Shyam singh",
+    title: "Delhi, India",
   },
   {
     quote: "All that we see or seem is but a dream within a dream.",
-    name: "Edgar Allan Poe",
-    title: "A Dream Within a Dream",
+    name: "Monukesh Singh",
+    title: "Nagpur, India",
   },
   {
     quote:
-      "It is a truth universally acknowledged, that a single man in possession of a good fortune, must be in want of a wife.",
-    name: "Jane Austen",
-    title: "Pride and Prejudice",
+      "Excellent communication, swift delivery, and top-notch packaging. A truly satisfying experience overall.",
+    name: "Shivam Singh",
+    title: "Rajkot, India",
   },
   {
     quote:
-      "Call me Ishmael. Some years ago—never mind how long precisely—having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world.",
+      "Outstanding attention to detail, evident in every aspect. Five stars without hesitation",
+    name: "Akaber",
+    title: "Mumbai, India",
+  },
+  {
+    quote:
+      "Impressed with the professionalism and courtesy displayed. A truly delightful transaction.",
+    name: "Mohit Rai",
+    title: "Varanasi, India",
+  },
+  {
+    quote:
+      "Incredible value for money, surpassed all competitors. A standout in every regard.",
+    name: "Ashwani Rai",
+    title: "Mirzapur, India",
+  },
+  {
+    quote:
+      "Unmatched customer support, went above and beyond to ensure satisfaction.",
     name: "Herman Melville",
-    title: "Moby-Dick",
+    title: "Goa, India",
   },
   {
     quote:
-      "Call me Ishmael. Some years ago—never mind how long precisely—having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world.",
-    name: "Herman Melville",
-    title: "Moby-Dick",
+      "Flawless transaction from start to finish. Couldn't be happier with my purchase.",
+    name: "Neraj Raj",
+    title: "Chandigarh, India",
   },
   {
     quote:
-      "Call me Ishmael. Some years ago—never mind how long precisely—having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world.",
-    name: "Herman Melville",
-    title: "Moby-Dick",
-  },
-  {
-    quote:
-      "Call me Ishmael. Some years ago—never mind how long precisely—having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world.",
-    name: "Herman Melville",
-    title: "Moby-Dick",
-  },
-  {
-    quote:
-      "Call me Ishmael. Some years ago—never mind how long precisely—having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world.",
-    name: "Herman Melville",
-    title: "Moby-Dick",
-  },
-  {
-    quote:
-      "Call me Ishmael. Some years ago—never mind how long precisely—having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world.",
-    name: "Herman Melville",
-    title: "Moby-Dick",
+      "Exceptional experience, deserving of the highest praise. Thank you for setting the standard so high",
+    name: "Mohit Singh",
+    title: "Delhi, India",
   },
 ];

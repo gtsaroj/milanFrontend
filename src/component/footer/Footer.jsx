@@ -5,15 +5,23 @@ function Footer() {
     <div className="bg-gray-800 w-[100vw] h-[400px] grid items-center">
       <div className=" h-[100px] flex  justify-between items-center text-[15px] text-white ml-3 mr-10">
         <div className="leading-[50px]">
-          <p>243 Wokingham Road, Earley, Reading, United Kingdom.</p>
+          <p>243 Wokingham Road, Earley, Reading, Banglore.</p>
           <p>+918303160798</p>
           <p>+917897677046</p>
         </div>
-        <div className="flex space-x-1">
-          <p>fb</p>
-          <p>fb</p>
-          <p>fb</p>
-          <p>fb</p>
+        <div className="flex space-x-5">
+          <p>
+            <i class="bi bi-facebook"></i>
+          </p>
+          <p>
+            <i class="bi bi-instagram"></i>
+          </p>
+          <p>
+            <i class="bi bi-twitter"></i>
+          </p>
+          <p>
+            <i class="bi bi-youtube"></i>
+          </p>
         </div>
       </div>
       <div className="border border-black  h-[0.45px] text-center ml-5 mr-10">

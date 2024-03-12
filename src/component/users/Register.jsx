@@ -1,6 +1,9 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function Register() {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     username: "",
     number: "",
@@ -8,10 +11,10 @@ function Register() {
     password: "",
     Name: "",
     age: "",
-    Address: "",
+    address: "",
     hight: "",
     sex: "",
-    Holiya: "",
+    holiya: "",
     date: "",
     time: "",
     place: "",
@@ -30,16 +33,36 @@ function Register() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Save form data to local storage
     localStorage.setItem("formData", JSON.stringify(formData));
-    // Optionally, you can clear the form after saving data
-    // setFormData({
-    //   firstName: "",
-    //   lastName: "",
-    //   email: "",
-    //   password: "",
-    //   // Clear other form fields here
-    // });
+    try {
+      const backendURL = "https://milanbackend-7gvf.onrender.com";
+      axios.post(`${backendURL}/api/register`, formData);
+      alert("Registered successfully");
+
+      setFormData({
+        username: "",
+        number: "",
+        email: "",
+        password: "",
+        Name: "",
+        age: "",
+        address: "",
+        hight: "",
+        sex: "",
+        holiya: "",
+        date: "",
+        time: "",
+        place: "",
+        others: "",
+        imageone: "",
+        imagetwo: "",
+        prize: "",
+      });
+      navigate("/Payment");
+    } catch (error) {
+      console.log(error.message);
+      alert("somthing worng", error);
+    }
   };
   return (
     <div className="h-full m-1">
@@ -175,10 +198,10 @@ function Register() {
             <div className="mt-2">
               <input
                 id="text"
-                name="Address"
+                name="address"
                 type="text"
                 required
-                value={formData.Address}
+                value={formData.address}
                 onChange={handleChange}
                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               />
@@ -232,10 +255,10 @@ function Register() {
             <div className="mt-2">
               <input
                 id="Holiya"
-                name="Holiya"
+                name="holiya"
                 type="text"
                 required
-                value={formData.Holiya}
+                value={formData.holiya}
                 onChange={handleChange}
                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               />

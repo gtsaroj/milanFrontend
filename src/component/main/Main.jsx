@@ -3,6 +3,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import CountUp from "react-countup";
+import ScrollTriggerComponent from "react-scroll-trigger";
 
 import "./Main.css";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
@@ -12,6 +14,7 @@ import Live from "../live/Live";
 import { InfiniteMovingCardsDemo } from "../cards/InfiniteMovingCardsDemo";
 
 function Main() {
+  const [counter, setCounter] = useState(false);
   return (
     <div>
       <div className="w-[80vw] h-[100vh]">
@@ -32,7 +35,8 @@ function Main() {
           >
             <div className="">
               <SwiperSlide>
-                <img src="/images/image11.jpg" className="" />
+                <img src="/images/image11.jpg" alt="Thanks" />
+                <p>Thanks</p>
               </SwiperSlide>
               <SwiperSlide>
                 <img src="/images/istockphoto.jpg" />
@@ -77,19 +81,49 @@ function Main() {
           <InfiniteMovingCardsDemo />
           <div className="flex justify-between m-10 w-[80vw]">
             <div className="text-center">
-              <span className="text-2xl md:text-4xl lg:text-5xl">10K</span>
+              <ScrollTriggerComponent
+                onEnter={() => setCounter(true)}
+                onExit={() => setCounter(false)}
+              >
+                <span className="text-2xl md:text-4xl lg:text-5xl">
+                  {counter && (
+                    <CountUp start={0} end={10} duration={2} delay={0} />
+                  )}
+                  K
+                </span>
+              </ScrollTriggerComponent>
               <p className="text-lg md:text-xl lg:text-2xl text-blue-500">
                 Live users
               </p>
             </div>
             <div className="text-center">
-              <span className="text-2xl md:text-4xl lg:text-5xl">50K</span>
+              <ScrollTriggerComponent
+                onEnter={() => setCounter(true)}
+                onExit={() => setCounter(false)}
+              >
+                <span className="text-2xl md:text-4xl lg:text-5xl">
+                  {counter && (
+                    <CountUp start={0} end={50} duration={2} delay={0} />
+                  )}
+                  K
+                </span>
+              </ScrollTriggerComponent>
               <p className="text-lg md:text-xl lg:text-2xl text-blue-500">
                 Happy users
               </p>
             </div>
             <div className="text-center">
-              <span className="text-2xl md:text-4xl lg:text-5xl">20+</span>
+              <ScrollTriggerComponent
+                onEnter={() => setCounter(true)}
+                onExit={() => setCounter(false)}
+              >
+                <span className="text-2xl md:text-4xl lg:text-5xl">
+                  {counter && (
+                    <CountUp start={0} end={20} duration={2} delay={0} />
+                  )}
+                  +
+                </span>
+              </ScrollTriggerComponent>
               <p className="text-lg md:text-xl lg:text-2xl text-blue-500">
                 Cities
               </p>
