@@ -57,7 +57,7 @@ function Register() {
         imagetwo: "",
         prize: "",
       });
-      navigate("/Payment");
+      navigate("/PaymentPage");
     } catch (error) {
       console.log(error.message);
       alert("somthing worng", error);

@@ -35,45 +35,60 @@ function Main() {
             modules={[Autoplay, Pagination, Navigation]}
             className="w-[100vw] h-[100%] mt-1 "
           >
-            <div className="">
+            <div>
               <SwiperSlide>
-                <img src="/images/image11.jpg" alt="Thanks" />
-                <p>Thanks</p>
+                <img
+                  src="/images/image11.jpg"
+                  alt="Thanks"
+                  className="block w-[100%] h-[100%] object-stretch object-center"
+                />
               </SwiperSlide>
               <SwiperSlide>
-                <img src="/images/istockphoto.jpg" />
+                <img
+                  src="/images/istockphoto.jpg"
+                  className="block w-[100%] h-[100%] object-stretch object-center"
+                />
               </SwiperSlide>
               <SwiperSlide>
-                <img src="/images/image7.jpg" />
+                <img
+                  src="/images/image7.jpg"
+                  className="block w-[100%] h-[100%] object-stretch object-center"
+                />
               </SwiperSlide>
               <SwiperSlide>
-                <img src="/images/chacha.jpg" />
+                <img
+                  src="/images/chacha.jpg"
+                  className="block w-[100%] h-[100%] object-stretch object-center"
+                />
               </SwiperSlide>
               <SwiperSlide>
-                <img src="/images/image4.jpg" />
+                <img
+                  src="/images/image4.jpg"
+                  className="block w-[100%] h-[100%] object-stretch object-center"
+                />
               </SwiperSlide>
               <SwiperSlide>
                 <img
                   src="/images/image5.jpg"
-                  className="h-[500px] overflow-hidden"
+                  className="block w-[100%] h-[100%] object-stretch object-center"
                 />
               </SwiperSlide>
               <SwiperSlide>
                 <img
                   src="/images/image6.jpg"
-                  className="h-[500px] overflow-hidden"
+                  className="block w-[100%] h-[100%] object-stretch object-center"
                 />
               </SwiperSlide>
               <SwiperSlide>
                 <img
                   src="/images/image3.jpg"
-                  className="h-[500px] overflow-hidden"
+                  className="block w-[100%] h-[100%] object-stretch object-center"
                 />
               </SwiperSlide>
               <SwiperSlide>
                 <img
                   src="/images/image10.jpg"
-                  className="h-full overflow-hidden"
+                  className="block w-[100%] h-[100%] object-stretch object-center"
                 />
               </SwiperSlide>
             </div>

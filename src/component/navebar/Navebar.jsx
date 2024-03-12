@@ -4,7 +4,7 @@ import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
 const navigation = [
-  { name: "Home", href: "/Main", current: false },
+  { name: "Home", href: "/Mainpage", current: false },
   { name: "Live", href: "#", current: false },
   { name: "About", href: "#", current: false },
 ];
@@ -96,7 +96,6 @@ function Navebar() {
                           {({ active }) => (
                             <Link to="/RegisterPage">
                               <a
-                                href="#"
                                 className={classNames(
                                   active ? "bg-gray-100" : "",
                                   "block px-4 py-2 text-sm text-gray-700"

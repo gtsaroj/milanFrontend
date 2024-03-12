@@ -1,12 +1,11 @@
 import React from "react";
-import Navebar from "../navebar/Navebar";
 import { Typewriter } from "react-simple-typewriter";
 function Header() {
   return (
     <>
       <div className="w-[100vw] h-[600px] relative ">
         <img
-          src="./images/image.jpg"
+          src=""
           className="w-screen h-screen bg-no-repeat bg-cover -z-30  "
         />
         <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50"></div>
