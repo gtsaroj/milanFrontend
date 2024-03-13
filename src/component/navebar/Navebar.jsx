@@ -36,7 +36,7 @@ function Navebar() {
                 <div className="flex flex-1 items-center justify-center md:items-stretch md:justify-start">
                   <div className="flex flex-shrink-0 items-center">
                     <h1 className="text-red-600 text-[25px] font-serif font-extrabold">
-                      Milan
+                      MILAN
                     </h1>
                   </div>
                   <div className="hidden md:ml-6 md:block">
@@ -104,19 +104,6 @@ function Navebar() {
                                 Register
                               </a>
                             </Link>
-                          )}
-                        </Menu.Item>
-                        <Menu.Item>
-                          {({ active }) => (
-                            <a
-                              href="#"
-                              className={classNames(
-                                active ? "bg-gray-100" : "",
-                                "block px-4 py-2 text-sm text-gray-700"
-                              )}
-                            >
-                              Login
-                            </a>
                           )}
                         </Menu.Item>
                       </Menu.Items>

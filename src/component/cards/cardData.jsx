@@ -67,55 +67,55 @@ export const cardsData = [
     age: "48y",
     city: "Lucknow",
     image:
-      "https://images.unsplash.com/photo-1618354702554-f42c2b79cbf8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fGluZGlhbiUyMHZpbGxhZ2UlMjBtZW58ZW58MHx8MHx8fDA%3D",
+      "https://media.istockphoto.com/id/1145066504/photo/indian-street-vendor-woman.jpg?s=612x612&w=0&k=20&c=X6gQFpYySdhdqfxwPHoJtrIl2qO_LhxMZ2SPzsEgUe8=",
   },
   {
     name: "Gopal Sharma",
-    age: "56y",
-    city: "Delhi",
+    age: "62y",
+    city: "Mumbai",
     image:
-      "https://images.unsplash.com/photo-1586151514672-2678a03b2be6?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fGluZGlhbiUyMHZpbGxhZ2UlMjBtZW58ZW58MHx8MHx8fDA%3D",
+      "https://media.istockphoto.com/id/872301090/photo/farmer-holding-hoe.jpg?s=612x612&w=0&k=20&c=JZ_AwyMSQWJ3x-VOs9Dz4kGtwrLO5rs_Sl2Zw7VwmSo=",
   },
   {
     name: "Krishna Patel",
-    age: "45y",
+    age: "25y",
     city: "Mumbai",
     image:
-      "https://images.unsplash.com/photo-1608345055960-049885db656b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGluZGlhbiUyMHZpbGxhZ2UlMjBtZW58ZW58MHx8MHx8fDA%3D",
+      "https://media.istockphoto.com/id/1284405588/photo/young-indian-farmer-in-traditional-wear.jpg?s=612x612&w=0&k=20&c=L7bbUXRLwmlFvs-WGhRjgEFhCM5LujUk_JmdFar0EvM=",
   },
   {
     name: "Radha Verma",
-    age: "50y",
+    age: "56y",
     city: "Jaipur",
     image:
-      "https://images.unsplash.com/photo-1603147460198-20c51c6cc9b0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fGluZGlhbiUyMHZpbGxhZ2UlMjBtZW58ZW58MHx8MHx8fDA%3D",
+      "https://media.istockphoto.com/id/1145070023/photo/street-vendor-indian-woman-smiling.webp?b=1&s=170667a&w=0&k=20&c=TTRE5h-bDtkm6-O7Wc_Iv-0R4kn64JF7VgrSECvlZnM=",
   },
   {
     name: "Lakshmi Gupta",
-    age: "53y",
+    age: "60y",
     city: "Chennai",
     image:
-      "https://images.unsplash.com/photo-1600438634706-d8d218c00e2e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDN8fGluZGlhbiUyMHZpbGxhZ2UlMjBtZW58ZW58MHx8MHx8fDA%3D",
+      "https://media.istockphoto.com/id/1500850775/photo/senior-rural-indian-woman-wearing-sari-standing-at-village-home.webp?b=1&s=170667a&w=0&k=20&c=xx1IxT5weHAKWYoQ8lm-p2NQtUN9iiLE-7pexlSyLFM=",
   },
   {
     name: "Ramya Singh",
-    age: "49y",
+    age: "29y",
     city: "Hyderabad",
     image:
-      "https://images.unsplash.com/photo-1600680531573-c1848b99a617?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDV8fGluZGlhbiUyMHZpbGxhZ2UlMjBtZW58ZW58MHx8MHx8fDA%3D",
+      "https://media.istockphoto.com/id/2032737247/photo/young-indian-farmer-standing-in-agriculture-field-happy-indian-farmer-in-field-portrait-of.jpg?s=612x612&w=0&k=20&c=-Jpn_yRJr034AWw6DrlQkyHC6n3hVZfxco9kdDEJRCg=",
   },
   {
     name: "Shyam Kumar",
-    age: "55y",
+    age: "4y",
     city: "Kolkata",
     image:
-      "https://images.unsplash.com/photo-1602310464508-f57d9f7c7143?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjN8fGluZGlhbiUyMHZpbGxhZ2UlMjBtZW58ZW58MHx8MHx8fDA%3D",
+      "https://media.istockphoto.com/id/1316744042/photo/indian-poor-child-playing-at-home.webp?b=1&s=170667a&w=0&k=20&c=LrbMt07ulALavbdh_Jg0vdvOuHj7ol4v6BPXTX1UERE=",
   },
   {
     name: "Anita Yadav",
-    age: "47y",
+    age: "57y",
     city: "Ahmedabad",
     image:
-      "https://images.unsplash.com/photo-1597032680600-2b7484118605?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDJ8fGluZGlhbiUyMHZpbGxhZ2UlMjBtZW58ZW58MHx8MHx8fDA%3D",
+      "https://media.istockphoto.com/id/1495308547/photo/woman-talking-on-mobile-phone.webp?b=1&s=170667a&w=0&k=20&c=lyYutf0WVicwBMWJfSj0vPF5VawBY6VEmOAeAKia6VY=",
   },
 ];
