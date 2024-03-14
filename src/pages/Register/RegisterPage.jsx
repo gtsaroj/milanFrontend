@@ -1,12 +1,12 @@
 import React from "react";
 import Register from "../../component/users/Register";
-import Navebar from "../../component/navebar/Navebar";
+import Navbar from "../../component/navebar/Navbar";
 import Footer from "../../component/footer/Footer";
 
 function RegisterPage() {
   return (
     <div>
-      <Navebar />
+      <Navbar />
       <Register />
       <Footer />
     </div>

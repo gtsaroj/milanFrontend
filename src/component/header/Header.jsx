@@ -3,7 +3,7 @@ import { Typewriter } from "react-simple-typewriter";
 function Header() {
   return (
     <>
-      <div className="w-[100vw] h-[600px] relative ">
+      <div className="w-[100vw] h-[600px] relative  ">
         {/* <img
           src=""
           className="w-screen h-screen bg-no-repeat bg-cover -z-30  "
