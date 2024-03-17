@@ -1,12 +1,12 @@
 import React from "react";
-import Navebar from "../../component/navebar/Navebar";
+import Navbar from "../../component/navebar/Navbar";
 import Footer from "../../component/footer/Footer";
 import Payment from "../../component/payment/Payment";
 
 function PaymentPage() {
   return (
     <div>
-      <Navebar />
+      <Navbar />
       <Payment />
       <Footer />
     </div>

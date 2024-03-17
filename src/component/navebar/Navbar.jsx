@@ -49,9 +49,11 @@ function Navbar() {
         </div>
         <div className="hidden md:block">
           <ul className="flex justify-around items-center w-[20vw] h-[60px] m-2 ">
-            <li className="hover:underline cursor-pointer underline-offset-8 decoration-4 decoration-blue-500">
-              Home
-            </li>
+            <Link to="/Mainpage">
+              <li className="hover:underline cursor-pointer underline-offset-8 decoration-4 decoration-blue-500">
+                Home
+              </li>
+            </Link>
             <li className="hover:underline cursor-pointer underline-offset-8 decoration-4 decoration-blue-500">
               About
             </li>
