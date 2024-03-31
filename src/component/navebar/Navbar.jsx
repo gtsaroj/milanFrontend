@@ -45,7 +45,7 @@ function Navbar() {
       </div>
       <div className="flex justify-around items-center w-[30vw] h-[60px] ml-8">
         <div className="text-red-600 text-[25px] font-serif font-extrabold md:flex z-10">
-          <h1>MEELAN</h1>
+          <h1>Miilan</h1>
         </div>
         <div className="hidden md:block">
           <ul className="flex justify-around items-center w-[20vw] h-[60px] m-2 ">
