@@ -4,7 +4,6 @@ import Mainpage from "./pages/mainpage/Mainpage";
 import RegisterPage from "./pages/Register/RegisterPage";
 import PaymentPage from "./pages/payment/PaymentPage";
 import LivePage from "./pages/LivePage/LivePage";
-import Dashbord from "./component/Dashbord/Dashbord";
 import Offerspage from "./pages/payment/Offers/Offerspage";
 import { AuthProvider } from "./Context/AuthProvider/AuthProvider";
 import ProtectedRoute from "./Context/ProtectRoute/ProtactedRoute";
@@ -37,7 +36,7 @@ function App() {
             path="/Dashbordpage"
             element={
               <ProtectedRoute>
-                <Dashbordpage/>
+                <Dashbordpage />
               </ProtectedRoute>
             }
           />
