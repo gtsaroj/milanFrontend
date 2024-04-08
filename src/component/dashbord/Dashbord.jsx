@@ -8,10 +8,18 @@ function Dashbord() {
     const fetchData = async () => {
       try {
         const userId = localStorage.getItem("userId");
-        console.log(userId);
-        const data = await fetchUserData(userId);
-        console.log(data.data);
-        setUserData(data.data);
+        if (!userId) {
+          console.error("User ID not found in localStorage");
+          return;
+        }
+        console.log("User ID:", userId);
+        const response = await getUserData(userId);
+        if (!response || !response.data) {
+          console.error("Invalid response:", response);
+          return;
+        }
+        console.log("Fetched data:", response.data);
+        setUserData(response.data);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -19,7 +27,6 @@ function Dashbord() {
 
     fetchData();
   }, []);
-
   const fetchUserData = async (userId) => {
     const data = await getUserData(userId);
     return data;

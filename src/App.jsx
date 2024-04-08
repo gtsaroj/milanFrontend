@@ -8,6 +8,7 @@ import Dashbord from "./component/Dashbord/Dashbord";
 import Offerspage from "./pages/payment/Offers/Offerspage";
 import { AuthProvider } from "./Context/AuthProvider/AuthProvider";
 import ProtectedRoute from "./Context/ProtectRoute/ProtactedRoute";
+import Dashbordpage from "./pages/Dashbord/Dashbordpage";
 
 function App() {
   return (
@@ -33,10 +34,10 @@ function App() {
             }
           />
           <Route
-            path="/Dashbord"
+            path="/Dashbordpage"
             element={
               <ProtectedRoute>
-                <Dashbord />
+                <Dashbordpage/>
               </ProtectedRoute>
             }
           />

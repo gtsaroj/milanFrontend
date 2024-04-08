@@ -63,8 +63,8 @@ export const getdata = async () => {
 export const getUserData = async (userId) => {
   try {
     return await axios.get(
-      // `http://localhost:5000/api/getdata/${userId}`
-      `https://milanbackend-7gvf.onrender.com/api/${userId}`
+      `http://localhost:5000/api/getdata/${userId}`
+      // `https://milanbackend-7gvf.onrender.com/api/${userId}`
     );
   } catch (error) {
     console.log(error.message);
