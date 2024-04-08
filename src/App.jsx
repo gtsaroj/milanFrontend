@@ -4,10 +4,10 @@ import Mainpage from "./pages/mainpage/Mainpage";
 import RegisterPage from "./pages/Register/RegisterPage";
 import PaymentPage from "./pages/payment/PaymentPage";
 import LivePage from "./pages/LivePage/LivePage";
+import Dashbord from "./component/dashbord/Dashbord";
 import Offerspage from "./pages/payment/Offers/Offerspage";
 import { AuthProvider } from "./Context/AuthProvider/AuthProvider";
 import ProtectedRoute from "./Context/ProtectRoute/ProtactedRoute";
-import Dashbordpage from "./pages/Dashbord/Dashbordpage";
 
 function App() {
   return (
@@ -33,10 +33,10 @@ function App() {
             }
           />
           <Route
-            path="/Dashbordpage"
+            path="/Dashbord"
             element={
               <ProtectedRoute>
-                <Dashbordpage />
+                <Dashbord />
               </ProtectedRoute>
             }
           />
