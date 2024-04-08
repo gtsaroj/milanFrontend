@@ -5,14 +5,11 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import CountUp from "react-countup";
 import ScrollTriggerComponent from "react-scroll-trigger";
-
-import "./Main.css";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import Footer from "../footer/Footer";
 import Live from "../live/Live";
 import Header from "../header/Header";
 import { InfiniteMovingCardsDemo } from "../cards/InfiniteMovingCardsDemo";
-import Congres from "../congresbord/Congres";
 
 function Main() {
   const [counter, setCounter] = useState(false);

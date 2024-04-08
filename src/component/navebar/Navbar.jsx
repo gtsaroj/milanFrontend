@@ -3,22 +3,62 @@ import { Fragment } from "react";
 import { Menu, Transition } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import { Link } from "react-router-dom";
+import ModalRegister from "../Popup/Register/ModalRegister";
+import ModalLogin from "../Popup/ModalLogin/ModalLogin";
+import Post from "../Popup/MissingPost/Post";
+import { AuthContext } from "./../../Context/AuthProvider/AuthProvider";
+import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
 function Navbar() {
+  const navigate = useNavigate();
   const [open, setOpen] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  const [showLoginModal, setShowLoginModal] = useState(false);
+  const [showPostModal, setShowPostModal] = useState(false);
+
+  const { user, logout } = useContext(AuthContext);
+
+  const handleLogout = () => {
+    logout();
+  };
+  const openModal = () => {
+    setShowModal(true);
+  };
+
+  const openLoginModal = () => {
+    setShowLoginModal(true);
+  };
+
+  const openPostModal = () => {
+    setShowPostModal(true);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+    setShowLoginModal(false);
+    setShowPostModal(false);
+  };
+  const handalClick = () => {
+    if (!user) {
+      openModal();
+    } else {
+      navigate("/LivePage");
+    }
+  };
 
   return (
     <div
-      className={` flex justify-between font-serif items-center w-[100vw] md:w-auto sm:bg-blue-600 md:bg-blue-600 lg:bg-white ${
+      className={` flex justify-between font-serif items-center lg:w-[100vw] md:w-auto sm:bg-blue-600 md:bg-blue-600 lg:bg-white ${
         open ? "" : ""
       }`}
     >
       {/* //mobile responsive */}
-      <div className="block md:hidden">
+      <div className="block md:hidden z-10 ">
         <div
           className=" font-extrabold text-3xl m-2 cursor-pointer text-white "
           onClick={() => setOpen(!open)}
@@ -32,8 +72,11 @@ function Navbar() {
                 <Link to="/Mainpage">
                   <span>Home</span>
                 </Link>
-                <span>Live</span>
+                <button onClick={handalClick}>
+                  <span>Live</span>
+                </button>
                 <span>About</span>
+                <p onClick={openPostModal}>+ Post</p>
               </div>
             </div>
           ) : (
@@ -43,7 +86,7 @@ function Navbar() {
           )}
         </div>
       </div>
-      <div className="flex justify-around items-center w-[30vw] h-[60px] ml-8">
+      <div className="flex justify-around items-center  w-[40vw] h-[60px] ml-8">
         <div className="text-red-600 text-[25px] font-serif font-extrabold md:flex z-10">
           <h1>Miilan</h1>
         </div>
@@ -57,9 +100,19 @@ function Navbar() {
             <li className="hover:underline cursor-pointer underline-offset-8 decoration-4 decoration-blue-500">
               About
             </li>
-            <li className="hover:underline cursor-pointer underline-offset-8 decoration-4 decoration-blue-500">
-              Live
-            </li>
+            <button onClick={handalClick}>
+              <li className="hover:underline cursor-pointer underline-offset-8 decoration-4 decoration-blue-500">
+                Live
+              </li>
+            </button>
+            {!user ? null : (
+              <li
+                onClick={openPostModal}
+                className="border w-[80px] h-[30px] text-center font-bold bg-blue-600 rounded text-white hover:bg-red-500 cursor-pointer"
+              >
+                + Post
+              </li>
+            )}
           </ul>
         </div>
       </div>
@@ -86,56 +139,84 @@ function Navbar() {
           >
             <Menu.Items className="absolute right-0 z-10 mt-2 w-40 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
               <div className="py-1">
-                <Menu.Item>
-                  {({ active }) => (
-                    <Link to="/RegisterPage">
-                      <p
-                        className={classNames(
-                          active
-                            ? "bg-gray-100 text-gray-900"
-                            : "text-gray-700",
-                          "block px-4 py-2 text-sm"
-                        )}
-                      >
-                        Register
-                      </p>
-                    </Link>
-                  )}
-                </Menu.Item>
-                <Menu.Item>
-                  {({ active }) => (
-                    <p
-                      className={classNames(
-                        active ? "bg-gray-100 text-gray-900" : "text-gray-700",
-                        "block px-4 py-2 text-sm"
+                {!user ? (
+                  <Fragment>
+                    <Menu.Item>
+                      {({ active }) => (
+                        <p
+                          className={classNames(
+                            active
+                              ? "bg-gray-100 text-gray-900"
+                              : "text-gray-700",
+                            "block px-4 py-2 text-sm"
+                          )}
+                          onClick={openModal}
+                        >
+                          Register
+                        </p>
                       )}
-                    >
-                      Login
-                    </p>
-                  )}
-                </Menu.Item>
-                <form method="POST" action="#">
-                  <Menu.Item>
-                    {({ active }) => (
-                      <button
-                        type="submit"
-                        className={classNames(
-                          active
-                            ? "bg-gray-100 text-gray-900"
-                            : "text-gray-700",
-                          "block w-full px-4 py-2 text-left text-sm"
+                    </Menu.Item>
+                    <Menu.Item>
+                      {({ active }) => (
+                        <p
+                          className={classNames(
+                            active
+                              ? "bg-gray-100 text-gray-900"
+                              : "text-gray-700",
+                            "block px-4 py-2 text-sm"
+                          )}
+                          onClick={openLoginModal}
+                        >
+                          Login
+                        </p>
+                      )}
+                    </Menu.Item>
+                  </Fragment>
+                ) : (
+                  <Fragment>
+                    <Menu.Item>
+                      {({ active }) => (
+                        <Link to={"/Dashbord"}>
+                          <p
+                            className={classNames(
+                              active
+                                ? "bg-gray-100 text-gray-900"
+                                : "text-gray-700",
+                              "block px-4 py-2 text-sm"
+                            )}
+                          >
+                            Dashboard
+                          </p>
+                        </Link>
+                      )}
+                    </Menu.Item>
+                    <form method="POST" action="#" onSubmit={handleLogout}>
+                      <Menu.Item>
+                        {({ active }) => (
+                          <button
+                            type="submit"
+                            className={classNames(
+                              active
+                                ? "bg-gray-100 text-gray-900"
+                                : "text-gray-700",
+                              "block w-full px-4 py-2 text-left text-sm"
+                            )}
+                          >
+                            Sign out
+                          </button>
                         )}
-                      >
-                        Sign out
-                      </button>
-                    )}
-                  </Menu.Item>
-                </form>
+                      </Menu.Item>
+                    </form>
+                  </Fragment>
+                )}
               </div>
             </Menu.Items>
           </Transition>
         </Menu>
       </div>
+      {showModal && <ModalRegister closeModal={closeModal} />}
+      {showLoginModal && <ModalLogin closeModal={closeModal} />}
+      {showPostModal && <Post closeModal={closeModal} />}
     </div>
   );
 }

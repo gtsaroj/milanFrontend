@@ -1,15 +1,17 @@
 import React from "react";
+import Live from "../../component/live/Live";
 import Navbar from "../../component/navebar/Navbar";
 import Footer from "../../component/footer/Footer";
-import Payment from "../../component/payment/Payment";
+import LiveDashbord from "../../component/live/LiveDashbord";
 
-function PaymentPage() {
+function LivePage() {
   return (
     <div>
-      <Payment />
+      <Navbar />
+      <LiveDashbord />
       <Footer />
     </div>
   );
 }
 
-export default PaymentPage;
+export default LivePage;
