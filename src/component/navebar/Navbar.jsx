@@ -176,7 +176,7 @@ function Navbar() {
                   <Fragment>
                     <Menu.Item>
                       {({ active }) => (
-                        <Link to={"/Dashbordpage"}>
+                        <Link to={"/Dashbord"}>
                           <p
                             className={classNames(
                               active
