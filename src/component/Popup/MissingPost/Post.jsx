@@ -27,8 +27,8 @@ function Post({ closeModal }) {
   const [loading, setLoading] = useState(false);
   const [showLocationModal, setShowLocationModal] = useState(false);
   const [check, setCheck] = useState(false);
-  const [fileUploadedone, setFileUploadedone] = useState("");
-  const [fileUploaded, setFileUploaded] = useState("");
+  const [fileUploadedone, setFileUploadedone] = useState(null);
+  const [fileUploaded, setFileUploaded] = useState(null);
   const [formData, setFormData] = useState(initialFormData);
 
   const handleFileChangeone = (e) => {
@@ -45,7 +45,7 @@ function Post({ closeModal }) {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
   };
-
+  console.log(fileUploadedone);
   const handleSubmit = async (event) => {
     event.preventDefault();
     setLoading(true);
@@ -56,7 +56,18 @@ function Post({ closeModal }) {
       alert("Please enter valid number");
       return;
     }
-
+    console.log(fileUploadedone);
+    if (
+      fileUploadedone?.name === fileUploaded?.name &&
+      fileUploadedone &&
+      fileUploaded
+    ) {
+      // setFileUploadedone();
+      // setFileUploaded(null);
+      setLoading(false);
+      toast.error("Please Select two deferent images");
+      return;
+    }
     // console.log(event.target);
     // const myData = new FormData(formDataref.current);
 
