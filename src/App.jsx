@@ -1,11 +1,11 @@
 import "./App.css";
 import { Navigate, Routes, Route } from "react-router-dom";
 import Mainpage from "./pages/mainpage/Mainpage";
-import RegisterPage from "./pages/Register/RegisterPage";
-import PaymentPage from "./pages/payment/PaymentPage";
+import PaymentPage from "./pages/payment/Paymentstate/PaymentPage";
+import Districtpage from "./pages/payment/paymentdistic/Districtpage";
+import Paymentcitypage from "./pages/payment/paymentcity/Paymentcitypage";
 import LivePage from "./pages/LivePage/LivePage";
 import Dashbord from "./component/dashbord/Dashbord";
-import Offerspage from "./pages/payment/Offers/Offerspage";
 import { AuthProvider } from "./Context/AuthProvider/AuthProvider";
 import ProtectedRoute from "./Context/ProtectRoute/ProtactedRoute";
 
@@ -33,19 +33,26 @@ function App() {
             }
           />
           <Route
+            path="/Districtpage"
+            element={
+              <ProtectedRoute>
+                <Districtpage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/Paymentcitypage"
+            element={
+              <ProtectedRoute>
+                <Paymentcitypage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
             path="/Dashbord"
             element={
               <ProtectedRoute>
                 <Dashbord />
-              </ProtectedRoute>
-            }
-          />
-
-          <Route
-            path="/Offerspage"
-            element={
-              <ProtectedRoute>
-                <Offerspage />
               </ProtectedRoute>
             }
           />

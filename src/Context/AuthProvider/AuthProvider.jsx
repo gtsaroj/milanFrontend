@@ -1,6 +1,5 @@
 import { createContext, useState, useEffect } from "react";
-import axios from "axios";
-import { loginUser } from "../../utils/UserAPIS/UserAPIS";
+import { loginUser, registerUser } from "../../utils/UserAPIS/UserAPIS";
 
 export const AuthContext = createContext(null);
 
@@ -13,7 +12,8 @@ const AuthProvider = ({ children }) => {
     const getUser = async () => {
       try {
         setLoading(true);
-        setUser(window.localStorage.getItem("token"));
+        console.log("token", localStorage.getItem("token"));
+        setUser(localStorage.getItem("token"));
       } catch (error) {
         console.log(error);
       } finally {
@@ -23,6 +23,18 @@ const AuthProvider = ({ children }) => {
 
     getUser();
   }, []);
+
+  const register = async (formData) => {
+    try {
+      const response = await registerUser(formData);
+      setUser(response.data); // Assuming your response contains user data
+      setError(null);
+      return response;
+    } catch (error) {
+      setError(error.message);
+      throw error;
+    }
+  };
 
   const login = async (formData) => {
     try {
@@ -42,9 +54,8 @@ const AuthProvider = ({ children }) => {
     window.localStorage.removeItem("userId");
     setUser(null);
   };
-
   return (
-    <AuthContext.Provider value={{ user, error, login, logout }}>
+    <AuthContext.Provider value={{ user, error, login, logout, register }}>
       {loading ? <p>Loading ...</p> : children}
     </AuthContext.Provider>
   );

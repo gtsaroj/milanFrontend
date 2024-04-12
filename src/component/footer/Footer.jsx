@@ -18,16 +18,16 @@ function Footer() {
         </div>
         <div className="flex space-x-5">
           <p>
-            <i class="bi bi-facebook"></i>
+            <i className="bi bi-facebook"></i>
           </p>
           <p>
-            <i class="bi bi-instagram"></i>
+            <i className="bi bi-instagram"></i>
           </p>
           <p>
-            <i class="bi bi-twitter"></i>
+            <i className="bi bi-twitter"></i>
           </p>
           <p>
-            <i class="bi bi-youtube"></i>
+            <i className="bi bi-youtube"></i>
           </p>
         </div>
       </div>

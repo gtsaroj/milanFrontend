@@ -1,14 +1,17 @@
 import React, { useState } from "react";
 import Modal from "react-modal";
-import { loginUser } from "../../../utils/UserAPIS/UserAPIS";
 import { useAuth } from "../../../useHook/useAuth";
 import { toast } from "react-toastify";
 import { CSSProperties } from "react";
-import ClipLoader from "react-spinners/HashLoader";
+import ClipLoader from "react-spinners/ClipLoader";
 
 function ModalLogin({ closeModal }) {
   const { login } = useAuth();
   const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
+  const [errors, setErrors] = useState({
     email: "",
     password: "",
   });
@@ -21,11 +24,33 @@ function ModalLogin({ closeModal }) {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    const newErrors = {};
+
+    if (formData.password.length < 4) {
+      newErrors.password = "Password must be at least 6 characters";
+    }
+    if (
+      formData.email &&
+      !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(formData.email)
+    ) {
+      newErrors.email = "Invalid email address";
+    }
+
+    // Update errors state
+    setErrors(newErrors);
+
+    // If there are errors, return early
+    if (Object.keys(newErrors).length > 0) {
+      setLoading(false);
+      return;
+    }
     try {
       setLoading(true);
       const response = await login(formData);
       console.log(response);
-      toast.success(response.status);
+      toast.success(response.data.message);
+      window.localStorage.setItem("username", response.data.username);
+      console.log("username", response.data.username);
       console.log("response.data", response.data);
       if (response.status === 200) {
         console.log(response.status);
@@ -35,8 +60,8 @@ function ModalLogin({ closeModal }) {
       setLoading(false);
     } catch (error) {
       setLoading(true);
-      toast.error("Login failed: " + error.message);
-      console.error("Login failed:", error.message);
+      toast.error("Login failed");
+      console.error("Login failed:", error);
       // Handle login error - Display error message to the user or perform other actions
       console.log("Form submitted with data:", formData);
 
@@ -49,7 +74,7 @@ function ModalLogin({ closeModal }) {
     <Modal
       isOpen={true}
       onRequestClose={closeModal}
-      className="lg:w-[40vw] lg:h-[50vh] md:h-[50vh]  sm:w-[80vw] sm:h-[50vh] border bg-white rounded p-4 "
+      className="lg:w-[40vw] lg:h-[55vh] md:h-[55vh]  sm:w-[80vw] sm:h-[55vh] border bg-white rounded p-4 "
       overlayClassName="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur z-40 "
     >
       <div>
@@ -72,9 +97,12 @@ function ModalLogin({ closeModal }) {
                   onChange={handleChange}
                   autoComplete="given-name"
                   required
-                  className="border h-10 w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                  className="border h-10 w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm sm:text-[20px] sm:px-2 font-normal"
                 />
               </div>
+              {errors.email && (
+                <label className="text-red-700 text-xs">{errors.email}</label>
+              )}
             </div>
 
             <div className="sm:col-span-3">
@@ -87,9 +115,14 @@ function ModalLogin({ closeModal }) {
                   required
                   value={formData.password}
                   onChange={handleChange}
-                  className="border h-10 w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                  className="border h-10 w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm sm:text-[20px] sm:px-2 font-normal"
                 />
               </div>
+              {errors.password && (
+                <label className="text-red-700 text-xs">
+                  {errors.password}
+                </label>
+              )}
             </div>
           </div>
           <div>
@@ -99,8 +132,8 @@ function ModalLogin({ closeModal }) {
             >
               {loading ? (
                 <ClipLoader
-                  color="black"
-                  size={20}
+                  color="white"
+                  size={30}
                   aria-label="Loading Spinner"
                 />
               ) : (

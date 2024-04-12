@@ -1,5 +1,6 @@
 import React from "react";
 import { Typewriter } from "react-simple-typewriter";
+import Scrolers from "../cards/IconsScrolers/Scrolers";
 function Header() {
   return (
     <>
@@ -25,6 +26,8 @@ function Header() {
           </span>
         </div>
       </div>
+
+      <Scrolers />
     </>
   );
 }

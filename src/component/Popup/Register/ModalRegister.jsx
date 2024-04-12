@@ -2,54 +2,92 @@ import React, { useState } from "react";
 import Modal from "react-modal";
 import { registerUser } from "../../../utils/UserAPIS/UserAPIS";
 import ModalLogin from "../ModalLogin/ModalLogin";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
+import ClipLoader from "react-spinners/HashLoader";
+import { useAuth } from "../../../useHook/useAuth";
 
 function ModalRegister({ closeModal }) {
+  const { register } = useAuth();
   const [formData, setFormData] = useState({
     username: "",
     number: "",
     email: "",
     password: "",
   });
+  const [errors, setErrors] = useState({
+    username: "",
+    number: "",
+    email: "",
+    password: "",
+  });
+  let [loading, setLoading] = useState(false);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
+    setLoading(true);
 
-    registerUser(formData)
-      .then((response) => {
-        console.log(response);
-        console.log("response.data", response.data);
+    const newErrors = {};
+
+    if (formData.number.length !== 10) {
+      newErrors.number = "Enter a valid number (exactly 10 digits)";
+    }
+    if (!/^[a-zA-Z]+$/.test(formData.username)) {
+      newErrors.username = "Username can only contain alphabetic characters";
+    } else if (formData.username.length === 0) {
+      newErrors.username = "Enter a valid name";
+    }
+    if (formData.password.length < 6) {
+      newErrors.password = "Password must be at least 6 characters";
+    }
+    if (
+      formData.email &&
+      !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(formData.email)
+    ) {
+      newErrors.email = "Invalid email address";
+    }
+
+    // Update errors state
+    setErrors(newErrors);
+
+    // If there are errors, return early
+    if (Object.keys(newErrors).length > 0) {
+      setLoading(true);
+      return;
+    }
+    try {
+      setLoading(true);
+      const response = await register(formData); // Assuming register returns a promise
+      console.log("response", response);
+
+      if (response && response.data) {
+        toast.success(response.data.message);
         if (response.data.status === 200) {
-          toast.success(response.data.message);
           console.log(response.data.message);
         }
-        window.localStorage.setItem("token", response.data.token);
-        window.localStorage.setItem("username", response.data.username);
-        window.localStorage.setItem("userId", response.data.userId);
-        console.log("token", response.data.token);
-        console.log("username", response.data.username);
-        console.log("userId", response.data.userId);
-        closeModal();
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+      } else {
+        // Handle case where response or response.data is undefined
+        console.log("Invalid response format:", response);
+        toast.error("Invalid response format");
+      }
 
-    console.log("Form submitted with data:", formData);
-    // Close the modal after form submission
-    closeModal();
+      closeModal();
+      setLoading(false);
+    } catch (error) {
+      setLoading(false);
+      console.error(error); // Log the error for debugging
+      toast.error(error.response ? error.response.data : "An error occurred"); // Display the error message from the server response, if available
+    }
   };
-
   return (
     <Modal
       isOpen={true}
       onRequestClose={closeModal}
-      className="lg:w-[40vw] lg:h-[75vh] sm:w-[80vw] sm:h-[50vh] border bg-white rounded p-4"
+      className=" xl:h[45vh] 2xl:h-[45vh] lg:w-[40vw] lg:h-[85vh] md:w-[40vw] md:h-[75vh] sm:w-[80vw] sm:h-[55vh] border bg-white rounded p-4"
       overlayClassName="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur z-40 "
     >
       <div>
@@ -72,9 +110,14 @@ function ModalRegister({ closeModal }) {
                   onChange={handleChange}
                   autoComplete="given-name"
                   required
-                  className="border h-10 w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                  className="border  h-10 w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm sm:text-[20px] sm:px-2 font-normal"
                 />
               </div>
+              {errors.username && (
+                <label className="text-red-700 text-xs">
+                  {errors.username}
+                </label>
+              )}
             </div>
             <div className="sm:col-span-3">
               <label htmlFor="email">Email</label>
@@ -86,9 +129,12 @@ function ModalRegister({ closeModal }) {
                   required
                   value={formData.email}
                   onChange={handleChange}
-                  className="border h-10 w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                  className="border h-10 w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm sm:text-[20px] sm:px-2 font-normal"
                 />
               </div>
+              {errors.email && (
+                <label className="text-red-700 text-xs">{errors.email}</label>
+              )}
             </div>
 
             <div className="sm:col-span-3">
@@ -101,9 +147,12 @@ function ModalRegister({ closeModal }) {
                   required
                   value={formData.number}
                   onChange={handleChange}
-                  className="border h-10 w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                  className="border h-10 w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm sm:text-[20px] sm:px-2 font-normal"
                 />
               </div>
+              {errors.number && (
+                <label className="text-red-700 text-xs">{errors.number}</label>
+              )}
             </div>
 
             <div className="sm:col-span-3">
@@ -116,9 +165,14 @@ function ModalRegister({ closeModal }) {
                   required
                   value={formData.password}
                   onChange={handleChange}
-                  className="border h-10 w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                  className="border h-10 w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm sm:text-[20px] sm:px-2 font-normal"
                 />
               </div>
+              {errors.password && (
+                <label className="text-red-700 text-xs">
+                  {errors.password}
+                </label>
+              )}
             </div>
           </div>
           <div>
@@ -126,12 +180,19 @@ function ModalRegister({ closeModal }) {
               type="submit"
               className="border w-full h-10 mt-5 rounded bg-blue-500 text-white hover:bg-blue-700 hover:text-white"
             >
-              Submit
+              {loading ? (
+                <ClipLoader
+                  color="black"
+                  size={20}
+                  aria-label="Loading Spinner"
+                />
+              ) : (
+                "Register"
+              )}
             </button>
           </div>
         </form>
       </div>
-      <ToastContainer />
     </Modal>
   );
 }

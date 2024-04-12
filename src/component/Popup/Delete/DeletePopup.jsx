@@ -1,15 +1,27 @@
+
+
 import React, { useState, useEffect } from "react";
-import { getUserData, deleteData } from "../../utils/UserAPIS/UserAPIS";
+import { getUserData } from "../../utils/UserAPIS/UserAPIS";
 import ClipLoader from "react-spinners/HashLoader";
 import { Link } from "react-router-dom";
-import Scrolers from "../cards/IconsScrolers/Scrolers";
+import { toast } from "react-toastify";
+import Deleteopen from "../Popup/Delete/Deleteopen";
 
 function Dashbord() {
   const [userData, setUserData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [refersh, setRefresh] = useState(false);
+  const [open, setOpen] = useState(false);
 
   const [currentTime, setCurrentTime] = useState(new Date());
+
+  const openModal = () => {
+    setOpen(true);
+  };
+
+  const closeModal = () => {
+    setOpen(false);
+  };
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -49,37 +61,14 @@ function Dashbord() {
 
   const username = localStorage.getItem("username");
 
-  const handleDelete = async (id) => {
-    try {
-      // Retrieve userId from localStorage
-      // const userId = localStorage.getItem("userId");
-
-      // if (!userId) {
-      //   console.error("User ID is not found in localStorage");
-      //   return;
-      // }
-
-      // Log the ID being deleted
-      console.log("Deleting data with ID:", id);
-
-      await deleteData(id);
-
-      console.log("Data deleted successfully");
-      setRefresh(true);
-
-      // If deletion is successful, fetch updated data
-      // const updatedUserData = await getUserData(userId);
-      // setUserData(updatedUserData);
-    } catch (error) {
-      console.error("Error handling delete operation:", error);
-      // Handle errors or display error messages to the user
-    }
+  const fetchUserData = async (userId) => {
+    const data = await getUserData(userId);
+    return data;
   };
-
   return (
     <div>
-      <div className=" lg:w-[100vw] h-[100vh] grid sm:w-full sm:h-full ">
-        <div className=" flex justify-between items-center top-0  w-[100vw] h-[70px] bg-blue-500">
+      <div className="border border-black lg:w-[100vw] h-[100vh] grid sm:w-full sm:h-full ">
+        <div className=" flex justify-between items-center top-0 border w-[100vw] h-[70px] bg-blue-500">
           <div className="m-5 font-bold text-3xl text-white">
             <Link to="/Mainpage">
               <h2>Dashbord</h2>
@@ -109,14 +98,14 @@ function Dashbord() {
               />
             </div>
           ) : (
-            <div className="">
+            <div className="border">
               {userData.length > 0 ? (
                 userData.map((user, index) => (
                   <div key={index} className=" h-[750px] mt-5">
                     <img
                       src={user.imageone}
                       alt="Image One"
-                      className=" border  w-[500px] h-[300px] rounded"
+                      className=" border h-[300px] rounded"
                     />
                     <p className="border h-[50px] text-center items-center justify-center flex bg-blue-950 text-white font-extrabold text-2xl">
                       Full Details
@@ -158,22 +147,15 @@ function Dashbord() {
                       </p>
                     </div>
                     <div className="flex justify-between  ">
-                      <a
-                        href="https://www.facebook.com/profile.php?id=61557895856171"
-                        target="_blank"
-                        rel="noopener noreferrer"
+                      <button
+                        onClick={openModal}
                         className="bg-blue-500 hover:bg-blue-700 text-white font-bold w-full py-2 m-1 px-4 rounded"
                       >
-                        Facebook
-                      </a>
-                      <a
-                        href="https://www.instagram.com/miilanindia/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="bg-blue-500 hover:bg-blue-700 text-white font-bold w-full py-2 m-1 px-4 rounded"
-                      >
-                        Instagram
-                      </a>
+                        Delete
+                      </button>
+                      <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold w-full py-2 m-1 px-4 rounded">
+                        Edit
+                      </button>
                     </div>
                   </div>
                 ))
@@ -181,15 +163,40 @@ function Dashbord() {
                 // If there is no data, display default image
                 <div className="flex justify-center items-center h-[750px] mt-5">
                   <img
-                    src="/images/download.jpg" // Add your default image URL here
+                    src="default-image-url.jpg" // Add your default image URL here
                     alt="Default Image"
-                    className=" border h-full rounded"
+                    className=" border h-[300px] rounded"
                   />
                 </div>
               )}
+              <div>
+                <div className="">
+                  <div className="flex justify-between">
+                    <div>
+                      <p className="text-red-600 text-2xl">
+                        <i className="bi bi-eye"></i>
+                        {"100k"}
+                        <span className="text-black text-xl">Total views</span>
+                      </p>
+                    </div>
+                    <div>
+                      <p className="text-red-600 text-2xl">
+                        <span>
+                          <i className="bi bi-heart-fill"></i>
+                        </span>
+                        <label>
+                          {"300"}
+                          <span className="text-black text-xl">supporters</span>
+                        </label>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           )}
         </div>
+        {open && <Deleteopen closeModal={closeModal} />}
       </div>
     </div>
   );

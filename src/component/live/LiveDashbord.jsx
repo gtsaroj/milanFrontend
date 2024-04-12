@@ -29,7 +29,7 @@ function LiveDashbord() {
                     </p>
                     <p className="text-red-600 ">
                       <span>
-                        <i class="bi bi-heart-fill"></i>
+                        <i className="bi bi-heart-fill"></i>
                       </span>
                       <label>
                         {card.Supporters}{" "}

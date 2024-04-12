@@ -51,6 +51,20 @@ function Navbar() {
     }
   };
 
+  const handelPost = () => {
+    if (!user) {
+      openModal();
+    } else {
+      openPostModal();
+    }
+  };
+  const scrollToFooter = () => {
+    window.scrollTo({
+      top: document.documentElement.scrollHeight,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <div
       className={` flex justify-between font-serif items-center lg:w-[100vw] md:w-auto sm:bg-blue-600 md:bg-blue-600 lg:bg-white ${
@@ -66,52 +80,60 @@ function Navbar() {
           {open ? (
             <div>
               <span className="z-10">
-                <i class="bi bi-x-lg"></i>
+                <i className="bi bi-x-lg"></i>
               </span>
               <div className=" flex flex-col items-center justify-center text-[15px] absolute lg:static bg-blue-600 left-0 right-0 md:mt-[130px] md:w-auto text-center">
                 <Link to="/Mainpage">
                   <span>Home</span>
                 </Link>
                 <button onClick={handalClick}>
-                  <span>Live</span>
+                  <span>Social Media</span>
                 </button>
-                <span>About</span>
-                <p onClick={openPostModal}>+ Post</p>
+                <button onClick={scrollToFooter}>
+                  <span>About</span>
+                </button>
+                <p onClick={handelPost}>+ Post</p>
               </div>
             </div>
           ) : (
             <span>
-              <i class="bi bi-list"></i>
+              <i className="bi bi-list"></i>
             </span>
           )}
         </div>
       </div>
-      <div className="flex justify-around items-center  w-[40vw] h-[60px] ml-8">
+      <div className="flex justify-around items-center   w-[50vw] h-[60px] ml-8">
         <div className="text-red-600 text-[25px] font-serif font-extrabold md:flex z-10">
           <h1>Miilan</h1>
         </div>
-        <div className="hidden md:block">
-          <ul className="flex justify-around items-center w-[20vw] h-[60px] m-2 ">
+        <div className="hidden md:block ">
+          <ul className="flex justify-evenly items-center text-[15px] font-bold w-[40vw] h-[40px] m-2 ">
             <Link to="/Mainpage">
-              <li className="hover:underline cursor-pointer underline-offset-8 decoration-4 decoration-blue-500">
+              <li className="hover:underline cursor-pointer underline-offset-8 decoration-4 decoration-blue-500 m-5">
                 Home
               </li>
             </Link>
-            <li className="hover:underline cursor-pointer underline-offset-8 decoration-4 decoration-blue-500">
+            <li
+              onClick={scrollToFooter}
+              className="hover:underline cursor-pointer underline-offset-8 decoration-4 decoration-blue-500"
+            >
               About
             </li>
             <button onClick={handalClick}>
               <li className="hover:underline cursor-pointer underline-offset-8 decoration-4 decoration-blue-500">
-                Live
+                Social Media
               </li>
             </button>
+
             {!user ? null : (
-              <li
-                onClick={openPostModal}
-                className="border w-[80px] h-[30px] text-center font-bold bg-blue-600 rounded text-white hover:bg-red-500 cursor-pointer"
-              >
-                + Post
-              </li>
+              <div className="border flex">
+                <li
+                  onClick={openPostModal}
+                  className="border w-[80px] h-[27px] text-center text-[15px] bg-blue-600 rounded text-white hover:bg-red-500 cursor-pointer"
+                >
+                  + Post
+                </li>{" "}
+              </div>
             )}
           </ul>
         </div>
@@ -148,7 +170,7 @@ function Navbar() {
                             active
                               ? "bg-gray-100 text-gray-900"
                               : "text-gray-700",
-                            "block px-4 py-2 text-sm"
+                            "block px-4 py-2 text-sm hover:cursor-pointer"
                           )}
                           onClick={openModal}
                         >
@@ -163,7 +185,7 @@ function Navbar() {
                             active
                               ? "bg-gray-100 text-gray-900"
                               : "text-gray-700",
-                            "block px-4 py-2 text-sm"
+                            "block px-4 py-2 text-sm hover:cursor-pointer"
                           )}
                           onClick={openLoginModal}
                         >
@@ -182,7 +204,7 @@ function Navbar() {
                               active
                                 ? "bg-gray-100 text-gray-900"
                                 : "text-gray-700",
-                              "block px-4 py-2 text-sm"
+                              "block px-4 py-2 text-sm hover:cursor-pointer"
                             )}
                           >
                             Dashboard
@@ -199,7 +221,7 @@ function Navbar() {
                               active
                                 ? "bg-gray-100 text-gray-900"
                                 : "text-gray-700",
-                              "block w-full px-4 py-2 text-left text-sm"
+                              "block w-full px-4 py-2 text-left text-sm hover:cursor-pointer"
                             )}
                           >
                             Sign out
