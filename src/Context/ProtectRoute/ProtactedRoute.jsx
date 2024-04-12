@@ -7,7 +7,7 @@ const ProtectedRoute = ({ children }) => {
   if (user !== null) {
     return children;
   } else {
-    return null;
+    return <Navigate to="/Mainpage" />;
   }
 };
 export default ProtectedRoute;

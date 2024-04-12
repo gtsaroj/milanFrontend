@@ -25,7 +25,7 @@ function Payment() {
 
     try {
       setLoading(true);
-
+      const token = localStorage.getItem("token");
       const userId = localStorage.getItem("userId");
       const username = localStorage.getItem("username");
 
@@ -33,16 +33,17 @@ function Payment() {
       formData.append("userId", userId);
       formData.append("username", username);
       formData.append("image", fileUploaded);
-
+      console.log("formData", formData);
       const response = await paymentRecive(formData);
       console.log("response", response);
       setLoading(false);
       navigate("/Mainpage");
     } catch (error) {
       setLoading(true);
-      console.log(error);
+      console.log(error.message);
       setLoading(false);
     }
+    console.log("fileUploaded", fileUploaded);
   };
 
   return (

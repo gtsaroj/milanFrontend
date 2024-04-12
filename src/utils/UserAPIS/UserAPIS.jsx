@@ -199,12 +199,14 @@ export const paymentRecive = async (data) => {
     console.log("header", headers);
     console.log("requestData", data);
     const response = await axios.post(
+      // "http://localhost:5000/api/createpayment",
       "https://milanbackend-7gvf.onrender.com/api/createpayment",
       data,
       {
         headers,
       }
     );
+    console.log("responseUser", response);
     return response;
   } catch (error) {
     console.log(error.message);
