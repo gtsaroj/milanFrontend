@@ -14,6 +14,7 @@ function ModalRegister({ closeModal }) {
     email: "",
     password: "",
   });
+
   const [errors, setErrors] = useState({
     username: "",
     number: "",
@@ -52,7 +53,16 @@ function ModalRegister({ closeModal }) {
     }
 
     // Update errors state
-    setErrors(newErrors);
+    if (
+      newErrors?.username ||
+      newErrors?.number ||
+      newErrors?.email ||
+      newErrors?.password
+    ) {
+      setErrors(newErrors);
+      setLoading(false);
+      return;
+    }
 
     // If there are errors, return early
     if (Object.keys(newErrors).length > 0) {
@@ -87,7 +97,7 @@ function ModalRegister({ closeModal }) {
     <Modal
       isOpen={true}
       onRequestClose={closeModal}
-      className=" xl:h[45vh] 2xl:h-[45vh] lg:w-[40vw] lg:h-[85vh] md:w-[40vw] md:h-[75vh] sm:w-[80vw] sm:h-[55vh] border bg-white rounded p-4"
+      className=" xl:h[45vh] 2xl:h-[45vh] lg:w-[40vw] lg:h-[88vh] md:w-[40vw] md:h-[75vh] sm:w-[80vw] sm:h-[55vh] border bg-white rounded p-4"
       overlayClassName="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur z-40 "
     >
       <div>

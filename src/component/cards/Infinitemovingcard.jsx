@@ -16,6 +16,7 @@ function Infinitemovingcard() {
                 <img
                   src={card.image}
                   className="h-[180px] w-[200px] m-2 rounded-xl bg-black"
+                  alt=""
                 />
               </div>
               <div className="text-black font-bold m-1">

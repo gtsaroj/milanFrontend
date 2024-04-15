@@ -44,48 +44,56 @@ function Main() {
                 <img
                   src="/images/istockphoto.jpg"
                   className="block w-[100%] h-[100%] object-stretch object-center"
+                  alt=""
                 />
               </SwiperSlide>
               <SwiperSlide>
                 <img
                   src="/images/image7.jpg"
                   className="block w-[100%] h-[100%] object-stretch object-center"
+                  alt=""
                 />
               </SwiperSlide>
               <SwiperSlide>
                 <img
                   src="/images/chacha.jpg"
                   className="block w-[100%] h-[100%] object-stretch object-center"
+                  alt=""
                 />
               </SwiperSlide>
               <SwiperSlide>
                 <img
                   src="/images/image4.jpg"
                   className="block w-[100%] h-[100%] object-stretch object-center"
+                  alt=""
                 />
               </SwiperSlide>
               <SwiperSlide>
                 <img
                   src="/images/image5.jpg"
                   className="block w-[100%] h-[100%] object-stretch object-center"
+                  alt=""
                 />
               </SwiperSlide>
               <SwiperSlide>
                 <img
                   src="/images/image6.jpg"
                   className="block w-[100%] h-[100%] object-stretch object-center"
+                  alt=""
                 />
               </SwiperSlide>
               <SwiperSlide>
                 <img
                   src="/images/image3.jpg"
                   className="block w-[100%] h-[100%] object-stretch object-center"
+                  alt=""
                 />
               </SwiperSlide>
               <SwiperSlide>
                 <img
                   src="/images/image10.jpg"
                   className="block w-[100%] h-[100%] object-stretch object-center"
+                  alt=""
                 />
               </SwiperSlide>
             </div>
