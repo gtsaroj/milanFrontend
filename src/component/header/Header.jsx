@@ -15,7 +15,7 @@ function Header() {
           <p>SE MILAYE</p>
           <span className="text-red-600 font-serif font-extrabold lg:text-left sm:text-center">
             <Typewriter
-              words={["MIILAN"]}
+              words={["Miilan.in"]}
               loop={1000}
               cursor
               cursorStyle="|"

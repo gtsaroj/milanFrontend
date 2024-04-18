@@ -105,6 +105,8 @@ function Post({ closeModal }) {
         onRequestClose={closeModal}
         className="lg:w-[40vw] lg:h-[75vh] sm:w-[80vw] sm:h-[50vh] border bg-white rounded p-4  overflow-hidden sm:overflow-auto "
         overlayClassName="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur z-40 "
+        shouldCloseOnOverlayClick={false}
+        shouldCloseOnEsc={false}
       >
         <div>
           <div onClick={closeModal}>

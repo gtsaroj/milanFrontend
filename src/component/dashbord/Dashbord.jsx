@@ -81,7 +81,7 @@ function Dashbord() {
       <div className=" lg:w-[100vw] h-[100vh] grid sm:w-full sm:h-full ">
         <div className=" flex justify-between items-center top-0  w-[100vw] h-[70px] bg-blue-500">
           <div className="m-5 font-bold text-3xl text-white">
-            <Link to="/Mainpage">
+            <Link to="/Home">
               <h2>Dashbord</h2>
             </Link>
           </div>
@@ -103,9 +103,9 @@ function Dashbord() {
             <div>
               <ClipLoader
                 color="blue"
-                size={200}
+                size={80}
                 aria-label="Loading Spinner"
-                className="absolute top-1/2 left-1 items-center justify-center"
+                className="absolute top-1/2 left-1 items-center justify-center mt-[200px] "
               />
             </div>
           ) : (

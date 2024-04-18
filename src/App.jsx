@@ -1,6 +1,6 @@
 import "./App.css";
 import { Navigate, Routes, Route } from "react-router-dom";
-import Mainpage from "./pages/mainpage/Mainpage";
+import Home from "./pages/mainpage/Home";
 import PaymentPage from "./pages/payment/Paymentstate/PaymentPage";
 import Districtpage from "./pages/payment/paymentdistic/Districtpage";
 import Paymentcitypage from "./pages/payment/paymentcity/Paymentcitypage";
@@ -14,8 +14,8 @@ function App() {
     <>
       <AuthProvider>
         <Routes>
-          <Route path="/" element={<Navigate to="/Mainpage" />} />
-          <Route path="/Mainpage" element={<Mainpage />} />
+          <Route path="/" element={<Navigate to="/Home" />} />
+          <Route path="/Home" element={<Home />} />
           <Route
             path="/LivePage"
             element={

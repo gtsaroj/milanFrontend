@@ -58,6 +58,8 @@ function Locations({ closeModal }) {
         onRequestClose={closeModal}
         className="lg:w-[40vw] lg:h-[70vh] sm:w-[80vw] sm:h-[55vh] border bg-white rounded p-4"
         overlayClassName="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur z-40"
+        shouldCloseOnOverlayClick={false}
+        shouldCloseOnEsc={false}
       >
         <div className="text-center">
           <form onSubmit={handleSubmit}>
@@ -66,7 +68,7 @@ function Locations({ closeModal }) {
             </div>
             <div className="relative inline-block">
               <select
-                className="text-center font-serif text-20px m-5 w-300px border border-black rounded-md px-4 py-2 appearance-none"
+                className="text-center font-serif text-15px mt-5 w-350px border border-black rounded-md px-5 py-3 appearance-none"
                 value={formData.area}
                 onChange={handleLocationTypeChange}
               >
@@ -93,7 +95,7 @@ function Locations({ closeModal }) {
               <input
                 type="text"
                 placeholder="Enter location name"
-                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 sm:text-[20px] sm:px-2 font-normal"
+                className="block w-full rounded-md border-0 py-1.5 sm:mt-5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 sm:text-[20px] sm:px-2 font-normal"
                 value={formData.areaName}
                 onChange={handleLocationNameChange}
               />

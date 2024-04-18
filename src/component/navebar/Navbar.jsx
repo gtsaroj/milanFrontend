@@ -5,6 +5,7 @@ import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import { Link } from "react-router-dom";
 import ModalRegister from "../Popup/Register/ModalRegister";
 import ModalLogin from "../Popup/ModalLogin/ModalLogin";
+import Locations from "../Popup/Locations/Locations";
 import Post from "../Popup/MissingPost/Post";
 import { AuthContext } from "./../../Context/AuthProvider/AuthProvider";
 import { useContext } from "react";
@@ -67,7 +68,7 @@ function Navbar() {
 
   return (
     <div
-      className={` flex justify-between font-serif items-center lg:w-[100vw] md:w-auto sm:bg-blue-600 md:bg-blue-600 lg:bg-white ${
+      className={` flex justify-between font-serif items-center lg:w-[100vw] md:w-auto sm:bg-gray-500 md:bg-blue-600 lg:bg-white ${
         open ? "" : ""
       }`}
     >
@@ -82,8 +83,8 @@ function Navbar() {
               <span className="z-10">
                 <i className="bi bi-x-lg"></i>
               </span>
-              <div className=" flex flex-col items-center justify-center text-[15px] absolute lg:static bg-blue-600 left-0 right-0 md:mt-[130px] md:w-auto text-center">
-                <Link to="/Mainpage">
+              <div className=" flex flex-col items-center justify-center text-[15px] absolute lg:static bg-gray-500 left-0 right-0 md:mt-[130px] md:w-auto text-center">
+                <Link to="/Home">
                   <span>Home</span>
                 </Link>
                 <button onClick={handalClick}>
@@ -92,7 +93,6 @@ function Navbar() {
                 <button onClick={scrollToFooter}>
                   <span>About</span>
                 </button>
-                <p onClick={handelPost}>+ Post</p>
               </div>
             </div>
           ) : (
@@ -103,12 +103,20 @@ function Navbar() {
         </div>
       </div>
       <div className="flex justify-around items-center   w-[50vw] h-[60px] ml-8">
-        <div className="text-red-600 text-[25px] font-serif font-extrabold md:flex z-10">
+        <p
+          className="border bg-red-500 hover:bg-red-700 px-6 lg:hidden md:hidden rounded py-1 m-2 text-white cursor-pointer"
+          onClick={handelPost}
+        >
+          + viral
+        </p>
+
+        <div className="lg:text-red-600 hidden sm:inline-hidden lg:inline-block sm:text-white  text-[25px] font-serif font-extrabold md:flex z-10">
           <h1>Miilan</h1>
         </div>
+
         <div className="hidden md:block ">
           <ul className="flex justify-evenly items-center text-[15px] font-bold w-[40vw] h-[40px] m-2 ">
-            <Link to="/Mainpage">
+            <Link to="/Home">
               <li className="hover:underline cursor-pointer underline-offset-8 decoration-4 decoration-blue-500 m-5">
                 Home
               </li>

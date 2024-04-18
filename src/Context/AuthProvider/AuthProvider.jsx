@@ -12,7 +12,6 @@ const AuthProvider = ({ children }) => {
     const getUser = async () => {
       try {
         setLoading(true);
-        console.log("token", localStorage.getItem("token"));
         setUser(localStorage.getItem("token"));
       } catch (error) {
         console.log(error);

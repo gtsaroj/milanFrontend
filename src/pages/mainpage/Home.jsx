@@ -2,7 +2,7 @@ import React from "react";
 import Main from "../../component/main/Main";
 import Navbar from "../../component/navebar/Navbar";
 
-function Mainpage() {
+function Home() {
   return (
     <div>
       <Navbar />
@@ -11,4 +11,4 @@ function Mainpage() {
   );
 }
 
-export default Mainpage;
+export default Home;
