@@ -68,7 +68,7 @@ function Navbar() {
 
   return (
     <div
-      className={` flex justify-between font-serif items-center lg:w-[100vw] md:w-auto sm:bg-gray-500 md:bg-blue-600 lg:bg-white ${
+      className={` flex justify-between font-serif items-center lg:w-full md:w-auto sm:bg-gray-500 md:bg-blue-600 lg:bg-white ${
         open ? "" : ""
       }`}
     >
@@ -111,7 +111,11 @@ function Navbar() {
         </p>
 
         <div className="lg:text-red-600 hidden sm:inline-hidden lg:inline-block sm:text-white  text-[25px] font-serif font-extrabold md:flex z-10">
-          <h1>Miilan</h1>
+          <img
+            src="/images/Miilan.png"
+            alt=""
+            className="w-[80px] h-[50px] bg-red-500"
+          />
         </div>
 
         <div className="hidden md:block ">

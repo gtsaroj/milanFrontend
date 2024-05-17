@@ -6,7 +6,8 @@ export const backendBaseUrl = "http://localhost:5000";
 export const registerUser = async (data) => {
   try {
     const response = await axios.post(
-      "https://milanbackend-7gvf.onrender.com/api/register",
+      "https://miilanbackend.onrender.com/api/register",
+      // "https://milanbackend-7gvf.onrender.com/api/register",
       data
     );
     window.localStorage.setItem("token", response.data.token);
@@ -21,7 +22,8 @@ export const registerUser = async (data) => {
 export const loginUser = async (data) => {
   try {
     const response = await axios.post(
-      "https://milanbackend-7gvf.onrender.com/api/login",
+      "https://miilanbackend.onrender.com/api/login",
+      // "https://milanbackend-7gvf.onrender.com/api/login",
       data
     );
     window.localStorage.setItem("token", response.data.token);
@@ -43,7 +45,8 @@ export const createData = async (data, token) => {
     };
     return await axios.post(
       // "http://localhost:5000/api/create",
-      "https://milanbackend-7gvf.onrender.com/api/create",
+      "https://miilanbackend.onrender.com/api/create",
+      // "https://milanbackend-7gvf.onrender.com/api/create",
       data,
       {
         headers,
@@ -58,7 +61,8 @@ export const getdata = async () => {
   try {
     return await axios.get(
       // "http://localhost:5000/api/getdata"
-      "https://milanbackend-7gvf.onrender.com/api/getdata"
+      "https://miilanbackend.onrender.com/api/getdata",
+      // "https://milanbackend-7gvf.onrender.com/api/getdata"
     );
   } catch (error) {
     console.log(error);
@@ -79,7 +83,8 @@ export const getUserData = async (userId) => {
     };
 
     const response = await axios.get(
-      `https://milanbackend-7gvf.onrender.com/api/getdata/${userId}`,
+      `https://miilanbackend.onrender.com/api/getdata/${userId}`,
+      // `https://milanbackend-7gvf.onrender.com/api/getdata/${userId}`,
       {
         headers,
       }
@@ -106,7 +111,8 @@ export const deleteData = async (id) => {
 
     const response = await axios.delete(
       // `http://localhost:5000/api/delete/${id}`,
-      `https://milanbackend-7gvf.onrender.com/api/delete/${id}`,
+      `https://miilanbackend.onrender.com/api/delete/${id}`,
+      // `https://milanbackend-7gvf.onrender.com/api/delete/${id}`,
       {
         headers: headers,
       }
@@ -137,7 +143,8 @@ export const updateData = async (id, data) => {
       withCredentials: true,
     };
     return await axios.put(
-      `https://milanbackend-7gvf.onrender.com/api//update/${id}`,
+      `https://miilanbackend.onrender.com/api/update/${id}`,
+      // `https://milanbackend-7gvf.onrender.com/api//update/${id}`,
       data,
       {
         headers: headers,
@@ -174,7 +181,7 @@ export const addLocation = async (data) => {
     // Send the modified data object in the request
     return await axios({
       method: "post",
-      url: "https://milanbackend-7gvf.onrender.com/api/addlocation",
+      url: "https://miilanbackend.onrender.com/api/addlocation",
       data: requestData,
       headers: headers,
     });
@@ -200,7 +207,8 @@ export const paymentRecive = async (data) => {
     console.log("requestData", data);
     const response = await axios.post(
       // "http://localhost:5000/api/createpayment",
-      "https://milanbackend-7gvf.onrender.com/api/createpayment",
+      "https://miilanbackend.onrender.com/api/createpayment",
+      // "https://milanbackend-7gvf.onrender.com/api/createpayment",
       data,
       {
         headers,

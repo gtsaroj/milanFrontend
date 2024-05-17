@@ -3,8 +3,10 @@ import Infinitemovingcard from "../cards/Infinitemovingcard";
 
 function Live() {
   return (
-    <div className="w-[100vw] h-[500px] bg-white">
-      <Infinitemovingcard />
+    <div className="w-full h-[500px] flex justify-center items-center bg-white">
+      <div className="border border-black lg:w-[70vw] sm:w-full ">
+        <Infinitemovingcard />
+      </div>
     </div>
   );
 }

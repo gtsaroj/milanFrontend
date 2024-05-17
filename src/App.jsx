@@ -11,7 +11,7 @@ import ProtectedRoute from "./Context/ProtectRoute/ProtactedRoute";
 
 function App() {
   return (
-    <>
+    <div className="">
       <AuthProvider>
         <Routes>
           <Route path="/" element={<Navigate to="/Home" />} />
@@ -58,7 +58,7 @@ function App() {
           />
         </Routes>
       </AuthProvider>
-    </>
+    </div>
   );
 }
 

@@ -37,7 +37,7 @@ function Payment() {
       const response = await paymentRecive(formData);
       console.log("response", response);
       setLoading(false);
-      navigate("/Mainpage");
+      navigate("/Home");
     } catch (error) {
       setLoading(true);
       console.log(error.message);

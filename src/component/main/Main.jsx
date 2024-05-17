@@ -9,149 +9,44 @@ import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import Footer from "../footer/Footer";
 import Live from "../live/Live";
 import Header from "../header/Header";
-import { InfiniteMovingCardsDemo } from "../cards/InfiniteMovingCardsDemo";
+import Artical from "../content/articalsection/Artical";
+import Socialmedia from "../content/socialmedia/Socialmedia";
+import Happycounter from "../content/counter/Happycounter";
+import SuccessStory from "../congresbord/SuccessStory";
 
 function Main() {
   const [counter, setCounter] = useState(false);
   return (
     <div>
       <Header />
-      <div className="w-[80vw] h-[100vh]">
-        <div className="w-[80vw] h-[600px]">
-          <Swiper
-            spaceBetween={30}
-            centeredSlides={true}
-            autoplay={{
-              delay: 2500,
-              disableOnInteraction: false,
-            }}
-            pagination={{
-              clickable: true,
-            }}
-            navigation={true}
-            modules={[Autoplay, Pagination, Navigation]}
-            className="w-[100vw] h-[100%] mt-1 "
-          >
-            <div>
-              <SwiperSlide>
-                <img
-                  src="/images/image11.jpg"
-                  alt="Thanks"
-                  className="block w-[100%] h-[100%] object-stretch object-center"
-                />
-              </SwiperSlide>
-              <SwiperSlide>
-                <img
-                  src="/images/istockphoto.jpg"
-                  className="block w-[100%] h-[100%] object-stretch object-center"
-                  alt=""
-                />
-              </SwiperSlide>
-              <SwiperSlide>
-                <img
-                  src="/images/image7.jpg"
-                  className="block w-[100%] h-[100%] object-stretch object-center"
-                  alt=""
-                />
-              </SwiperSlide>
-              <SwiperSlide>
-                <img
-                  src="/images/chacha.jpg"
-                  className="block w-[100%] h-[100%] object-stretch object-center"
-                  alt=""
-                />
-              </SwiperSlide>
-              <SwiperSlide>
-                <img
-                  src="/images/image4.jpg"
-                  className="block w-[100%] h-[100%] object-stretch object-center"
-                  alt=""
-                />
-              </SwiperSlide>
-              <SwiperSlide>
-                <img
-                  src="/images/image5.jpg"
-                  className="block w-[100%] h-[100%] object-stretch object-center"
-                  alt=""
-                />
-              </SwiperSlide>
-              <SwiperSlide>
-                <img
-                  src="/images/image6.jpg"
-                  className="block w-[100%] h-[100%] object-stretch object-center"
-                  alt=""
-                />
-              </SwiperSlide>
-              <SwiperSlide>
-                <img
-                  src="/images/image3.jpg"
-                  className="block w-[100%] h-[100%] object-stretch object-center"
-                  alt=""
-                />
-              </SwiperSlide>
-              <SwiperSlide>
-                <img
-                  src="/images/image10.jpg"
-                  className="block w-[100%] h-[100%] object-stretch object-center"
-                  alt=""
-                />
-              </SwiperSlide>
-            </div>
-          </Swiper>
-        </div>
-        <div className="grid place-items-center w-[100vw] h-[700px] bg-white ">
-          <InfiniteMovingCardsDemo />
-          <div className="flex justify-between m-10 w-[80vw]">
-            <div className="text-center">
-              <ScrollTriggerComponent
-                onEnter={() => setCounter(true)}
-                onExit={() => setCounter(false)}
-              >
-                <span className="text-2xl md:text-4xl lg:text-5xl">
-                  {counter && (
-                    <CountUp start={0} end={10} duration={2} delay={0} />
-                  )}
-                  K
+      <div className="w-full h-[100vh]">
+        <div className="w-full lg:h-[800px] ">
+          <div className=" w-full bg-slate-800 py-16 flex items-center justify-center">
+            <div className="w-[90%] text-white flex flex-col items-center gap-y-5 md:gap-y-12">
+              <div className="flex flex-col items-center justify-center gap-y-5">
+                <span className="font-bold text-center text-[1.3rem]  md:text-4xl">
+                  Over 20 lakh people go missing
+                  <br /> every year in India.
                 </span>
-              </ScrollTriggerComponent>
-              <p className="text-lg md:text-xl lg:text-2xl text-blue-500">
-                Live users
-              </p>
-            </div>
-            <div className="text-center">
-              <ScrollTriggerComponent
-                onEnter={() => setCounter(true)}
-                onExit={() => setCounter(false)}
-              >
-                <span className="text-2xl md:text-4xl lg:text-5xl">
-                  {counter && (
-                    <CountUp start={0} end={50} duration={2} delay={0} />
-                  )}
-                  K
-                </span>
-              </ScrollTriggerComponent>
-              <p className="text-lg md:text-xl lg:text-2xl text-blue-500">
-                Happy users
-              </p>
-            </div>
-            <div className="text-center">
-              <ScrollTriggerComponent
-                onEnter={() => setCounter(true)}
-                onExit={() => setCounter(false)}
-              >
-                <span className="text-2xl md:text-4xl lg:text-5xl">
-                  {counter && (
-                    <CountUp start={0} end={20} duration={2} delay={0} />
-                  )}
-                  +
-                </span>
-              </ScrollTriggerComponent>
-              <p className="text-lg md:text-xl lg:text-2xl text-blue-500">
-                Cities
-              </p>
+                <p className="text-sm md:text-[1rem] break-words  text-center w-[90vw] md:w-full">
+                  Invite the bot, pick a channel, and you're set—no custom code
+                  needed, and no vendor lock-in.
+                </p>
+              </div>
+              <div className="w-max">
+                <img
+                  className="w-[90vw] h-[10rem] md:w-[80vw] md:h-[30rem] rounded-md"
+                  src="/images/CHILD-1.jpg"
+                  alt="banner"
+                />
+              </div>
             </div>
           </div>
         </div>
+        <Artical />
+        <Socialmedia />
+        <Happycounter />
+        <SuccessStory />
         <Live />
         <Footer />
       </div>

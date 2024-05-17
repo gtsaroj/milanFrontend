@@ -132,7 +132,7 @@ function Dashbord() {
                         Address: {user.address}
                       </p>
                       <p className="text-black-500 font-bold">
-                        Height: {user.height}
+                        Height: {user.hight}
                       </p>
                       <p className="text-black-500 font-bold">
                         Gender: {user.sex}
