@@ -1,8 +1,54 @@
-import React from "react";
+import React, { useState } from "react";
 import { Typewriter } from "react-simple-typewriter";
 import Scrolers from "../cards/IconsScrolers/Scrolers";
+import { AuthContext } from "./../../Context/AuthProvider/AuthProvider";
+import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import ModalRegister from "../Popup/Register/ModalRegister";
+import ModalLogin from "../Popup/ModalLogin/ModalLogin";
+import Post from "../Popup/MissingPost/Post";
+
 import Instruction from "./instruction/Instraction";
 function Header() {
+  const [open, setOpen] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  const [showLoginModal, setShowLoginModal] = useState(false);
+  const [showPostModal, setShowPostModal] = useState(false);
+
+  const { user, logout } = useContext(AuthContext);
+
+  const openModal = () => {
+    setShowModal(true);
+  };
+
+  const openLoginModal = () => {
+    setShowLoginModal(true);
+  };
+
+  const openPostModal = () => {
+    setShowPostModal(true);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+    setShowLoginModal(false);
+    setShowPostModal(false);
+  };
+  const handalClick = () => {
+    if (!user) {
+      openModal();
+    } else {
+      navigate("/LivePage");
+    }
+  };
+
+  const handelPost = () => {
+    if (!user) {
+      openModal();
+    } else {
+      openPostModal();
+    }
+  };
   return (
     <>
       <div className="w-full h-[600px] relative  ">
@@ -37,6 +83,7 @@ function Header() {
             <br />
             <div className="flex justify-center">
               <button
+                onClick={handelPost}
                 type="button"
                 class="text-white group flex justify-center items-center bg-yellow-600 hover:bg-yellow-700 bg-gradient-to-r from-[#E4A11B] to-[#D42A46] focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm md:text-[1.2rem] w-[10rem] md:w-[13rem] h-[3rem] dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
               >
@@ -59,6 +106,9 @@ function Header() {
             </div>
           </div>
         </div>
+        {showModal && <ModalRegister closeModal={closeModal} />}
+        {showLoginModal && <ModalLogin closeModal={closeModal} />}
+        {showPostModal && <Post closeModal={closeModal} />}
       </div>
       <Instruction />
     </>
