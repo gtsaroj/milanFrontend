@@ -11,11 +11,11 @@ function SuccessStory() {
           More then 30% Success Stories accrose india
         </h1>
       </div>
-      <div className="  w-full h-[700px] ">
+      {/* <div className="  w-full h-[700px] ">
         <div className="w-full border h-full flex justify-center items-center">
           <img src="/images/story1.jpeg" alt="" className="w-full h-full" />
         </div>
-      </div>
+      </div> */}
       <div className="  w-full h-[700px]">
         <div className="w-full border h-full flex justify-center items-center">
           <img src="/images/story2.jpeg" alt="" className="w-full h-full" />

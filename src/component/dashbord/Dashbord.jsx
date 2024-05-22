@@ -116,7 +116,7 @@ function Dashbord() {
                     <img
                       src={user.imageone}
                       alt="Image One"
-                      className=" border  w-[500px] h-[300px] rounded"
+                      className=" border  w-full h-[300px]  rounded"
                     />
                     <p className="border h-[50px] text-center items-center justify-center flex bg-blue-950 text-white font-extrabold text-2xl">
                       Full Details
