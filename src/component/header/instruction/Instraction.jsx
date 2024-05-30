@@ -2,7 +2,7 @@ import React from "react";
 
 function Instruction() {
   return (
-    <div className="  w-full pb-16 flex flex-col items-center mt-5 gap-y-12 ">
+    <div className="  w-full pb-16 flex flex-col items-center mt-10 gap-y-12 ">
       <div className="w-max">
         <span class="font-bold text-yellow-500 text-center text-[1.3rem]  md:text-4xl">
           Immediate solutions, less stress

@@ -73,7 +73,7 @@ function Header() {
         <div className="absolute top-0 left-0 w-full h-full flex justify-center items-center">
           <div className="grid justify-center">
             <div>
-              <p class="text-white text-center text-sm md:leading-[2rem] md:text-[1.4rem] break-words">
+              <p class="text-white text-center text-sm md:leading-[2rem]  md:text-[1.4rem] break-words">
                 Miilan is a platform dedicated to spreading missing person
                 details
                 <br />
