@@ -10,10 +10,7 @@ function Footer() {
             <span>Address- </span>243 Wokingham Road, Earley, Reading, Banglore.
           </p>
           <p>
-            <span>Helpline- </span>+918303160798
-          </p>
-          <p>
-            <span>Helpline- </span>+917897677046
+            <span>Helpline- </span>+9120163229
           </p>
         </div>
         <div className="flex space-x-5">
