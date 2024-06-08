@@ -4,7 +4,7 @@ function Instruction() {
   return (
     <div className="  w-full pb-16 flex flex-col items-center mt-10 gap-y-12 ">
       <div className="w-max">
-        <span class="font-bold text-yellow-500 text-center text-[1.3rem]  md:text-4xl">
+        <span className="font-bold text-yellow-500 text-center text-[1.3rem]  md:text-4xl">
           Immediate solutions, less stress
         </span>
       </div>
@@ -14,7 +14,7 @@ function Instruction() {
             <svg
               stroke="currentColor"
               fill="currentColor"
-              stroke-width="0"
+              strokeWidth="0"
               viewBox="0 0 24 24"
               height="25"
               width="25"
@@ -35,7 +35,7 @@ function Instruction() {
             <svg
               stroke="currentColor"
               fill="currentColor"
-              stroke-width="0"
+              strokeWidth="0"
               viewBox="0 0 32 32"
               height="25"
               width="25"
@@ -55,7 +55,7 @@ function Instruction() {
             <svg
               stroke="currentColor"
               fill="currentColor"
-              stroke-width="0"
+              strokeWidth="0"
               viewBox="0 0 24 24"
               height="25"
               width="25"

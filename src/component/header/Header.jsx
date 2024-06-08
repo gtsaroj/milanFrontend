@@ -73,7 +73,7 @@ function Header() {
         <div className="absolute top-0 left-0 w-full h-full flex justify-center items-center">
           <div className="grid justify-center">
             <div>
-              <p class="text-white text-center text-sm md:leading-[2rem]  md:text-[1.4rem] break-words">
+              <p className="text-white text-center text-sm md:leading-[2rem]  md:text-[1.4rem] break-words">
                 Miilan is a platform dedicated to spreading missing person
                 details
                 <br />
@@ -85,14 +85,14 @@ function Header() {
               <button
                 onClick={handelPost}
                 type="button"
-                class="text-white group flex justify-center items-center bg-yellow-600 hover:bg-yellow-700 bg-gradient-to-r from-[#E4A11B] to-[#D42A46] focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm md:text-[1.2rem] w-[10rem] md:w-[13rem] h-[3rem] dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
+                className="text-white group flex justify-center items-center bg-yellow-600 hover:bg-yellow-700 bg-gradient-to-r from-[#E4A11B] to-[#D42A46] focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm md:text-[1.2rem] w-[10rem] md:w-[13rem] h-[3rem] dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
               >
                 Register missing{" "}
-                <span class="group-hover:translate-x-1 duration-200 ease-out">
+                <span className="group-hover:translate-x-1 duration-200 ease-out">
                   <svg
                     stroke="currentColor"
                     fill="currentColor"
-                    stroke-width="0"
+                    strokeWidth="0"
                     viewBox="0 0 24 24"
                     height="30"
                     width="30"

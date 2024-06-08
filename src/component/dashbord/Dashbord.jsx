@@ -2,21 +2,31 @@ import React, { useState, useEffect } from "react";
 import { getUserData, deleteData } from "../../utils/UserAPIS/UserAPIS";
 import ClipLoader from "react-spinners/HashLoader";
 import { Link } from "react-router-dom";
-import Scrolers from "../cards/IconsScrolers/Scrolers";
+import { useMemo } from "react";
+import { BadgeDollarSign, Delete, Edit, Trash } from "lucide-react";
 
 function Dashbord() {
   const [userData, setUserData] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [refersh, setRefresh] = useState(false);
 
-  const [currentTime, setCurrentTime] = useState(new Date());
+  const [currentTime, setCurrentTime] = useState();
 
+  // useEffect(() => {
+  //   const intervalId = setInterval(() => {
+  //     setCurrentTime(new Date());
+  //   }, 1000);
+  //   return () => clearInterval(intervalId);
+  // }, []);
+
+  const date = new Date();
+  const currentTimeZone = date?.toLocaleTimeString().toString();
   useEffect(() => {
-    const intervalId = setInterval(() => {
-      setCurrentTime(new Date());
-    }, 1000);
-    return () => clearInterval(intervalId);
-  }, []);
+    const interval = setInterval(() => setCurrentTime(currentTimeZone), 1000);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, [currentTimeZone]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -24,16 +34,9 @@ function Dashbord() {
         setLoading(true);
         const userId = localStorage.getItem("userId");
         if (!userId) {
-          console.error("User ID not found in localStorage");
-          return;
+          throw new Error("User ID not found in localStorage");
         }
-        console.log("User ID:", userId);
         const response = await getUserData(userId);
-        if (!response || !response.data) {
-          console.error("Invalid response:", response);
-          return;
-        }
-        console.log("Fetched data:", response.data);
         setUserData(response.data);
         setLoading(false);
       } catch (error) {
@@ -44,8 +47,7 @@ function Dashbord() {
     };
 
     fetchData();
-    setRefresh(false);
-  }, [refersh]);
+  }, []);
 
   const username = localStorage.getItem("username");
 
@@ -65,7 +67,6 @@ function Dashbord() {
       await deleteData(id);
 
       console.log("Data deleted successfully");
-      setRefresh(true);
 
       // If deletion is successful, fetch updated data
       // const updatedUserData = await getUserData(userId);
@@ -77,15 +78,15 @@ function Dashbord() {
   };
 
   return (
-    <div>
-      <div className=" lg:w-[100vw] h-[100vh] grid sm:w-full sm:h-full ">
-        <div className=" flex justify-between items-center top-0  w-[100vw] h-[70px] bg-blue-500">
-          <div className="m-5 font-bold text-3xl text-white">
+    <React.Fragment>
+      <div className=" grid">
+        <div className=" flex py-3 px-2 justify-between items-center  bg-blue-500">
+          <div className=" font-bold text-2xl text-white">
             <Link to="/Home">
               <h2>Dashbord</h2>
             </Link>
           </div>
-          <div className="m-5">
+          <div className="flex flex-col items-start justify-center gap-1">
             <h2 className="font-bold  ">
               Welcome :
               <span className="font-normal  text-white "> {username}</span>
@@ -93,13 +94,13 @@ function Dashbord() {
             <p className="font-bold ">
               Time :{" "}
               <span className="font-normal text-white  ">
-                {currentTime.toLocaleTimeString()}
+                {currentTime?.toString()}
               </span>
             </p>
           </div>
         </div>
         <div className="flex justify-center items-center">
-          {!userData || loading ? (
+          {loading ? (
             <div>
               <ClipLoader
                 color="blue"
@@ -109,71 +110,45 @@ function Dashbord() {
               />
             </div>
           ) : (
-            <div className="">
-              {userData.length > 0 ? (
+            <div className=" flex-wrap flex w-full px-3 py-2 items-center justify-center gap-6">
+              {userData?.length > 0 ? (
                 userData.map((user, index) => (
-                  <div key={index} className=" h-[750px] mt-5">
-                    <img
-                      src={user.imageone}
-                      alt="Image One"
-                      className=" border  w-full h-[300px]  rounded"
-                    />
-                    <p className="border h-[50px] text-center items-center justify-center flex bg-blue-950 text-white font-extrabold text-2xl">
-                      Full Details
-                    </p>
-                    <div className="border  bg-red-500 text-center text-xl ">
-                      <p className="text-black-500 font-bold">
-                        Name: {user.name}
-                      </p>
-                      <p className="text-black-500 font-bold">
-                        Age: {user.age}
-                      </p>
-                      <p className="text-black-500 font-bold">
-                        Address: {user.address}
-                      </p>
-                      <p className="text-black-500 font-bold">
-                        Height: {user.hight}
-                      </p>
-                      <p className="text-black-500 font-bold">
-                        Gender: {user.sex}
-                      </p>
-                      <p className="text-black-500 font-bold">
-                        Holiya: {user.holiya}
-                      </p>
-                      <p className="text-black-500 font-bold">
-                        Missing Date: {user.date}
-                      </p>
-                      <p className="text-black-500 font-bold">
-                        Missing Time: {user.time}
-                      </p>
-                      <p className="text-black-500 font-bold">
-                        Missing Place: {user.place}
-                      </p>
-                      <p className="  text-black-500 font-bold">
-                        Other Details:
-                        <span>{user.others}</span>
-                      </p>
-                      <p className=" border h-[50px] text-center text-xl flex items-center justify-center bg-green-500 text-red-700 text-black-500 font-bold">
-                        Price amount: {user.prize}Rs
-                      </p>
+                  <div
+                    className=" relative group/update sm:w-fit w-full flex md:flex-row flex-col items-start  p-1 gap-5 justify-center bg-[#e4e1e1] rounded "
+                    key={index}
+                  >
+                    <div className=" w-full sm:w-[350px]  h-[195px]">
+                      <img
+                        src={user.imageone}
+                        className=" w-full h-full rounded "
+                        alt=""
+                      />
                     </div>
-                    <div className="flex justify-between  ">
-                      <a
-                        href="https://www.facebook.com/profile.php?id=61557895856171"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="bg-blue-500 hover:bg-blue-700 text-white font-bold w-full py-2 m-1 px-4 rounded"
-                      >
-                        Facebook
-                      </a>
-                      <a
-                        href="https://www.instagram.com/miilanindia/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="bg-blue-500 hover:bg-blue-700 text-white font-bold w-full py-2 m-1 px-4 rounded"
-                      >
-                        Instagram
-                      </a>
+                    <div className="flex w-full flex-col text-gray-700 items-start gap-1">
+                      <h1 className="text-sm">{user.name}</h1>
+                      <h2 className="text-sm">{user.age}</h2>
+                      <h3 className="text-sm">{user.height}</h3>
+                      <h4 className="text-sm">
+                        {" "}
+                        Lost Time : {user.date} , {user.time}
+                      </h4>
+                      <h5 className="text-sm">Address : {user.address}</h5>
+                      <h6 className="text-sm">Place : {user.place}</h6>
+                      <p className="text-sm">Holiya : {user.holiya}</p>
+                      <p className="text-sm">Others : {user.others}</p>
+                      <p className="text-sm"> Price : {user.prize} </p>
+                    </div>
+                    <div className=" transition-all cursor-pointer group-hover/update:visible invisible text-white text-sm absolute left-0 right-0 rounded flex items-center justify-center gap-7 top-0 bottom-0  w-full bg-[#0000005b] ">
+                      <button className="bg-red-400 hover:bg-red-500 transition-all rounded p-1">
+                        <Edit className="size-5" />
+                      </button>
+                      <button className="bg-red-400 hover:bg-red-500 transition-all rounded p-1">
+                        <Trash  className="size-5"/>{" "}
+                      </button>
+                      <button className="flex items-center justify-center gap-1 bg-red-400 hover:bg-red-500 transition-all rounded p-1">
+                        <BadgeDollarSign className="size-5" />
+                        <span>Payment</span>
+                      </button>
                     </div>
                   </div>
                 ))
@@ -191,7 +166,7 @@ function Dashbord() {
           )}
         </div>
       </div>
-    </div>
+    </React.Fragment>
   );
 }
 
