@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import ModalRegister from "../Popup/Register/ModalRegister";
 import ModalLogin from "../Popup/ModalLogin/ModalLogin";
 import Locations from "../Popup/Locations/Locations";
-import Post from "../Popup/MissingPost/Post";
+
 import { AuthContext } from "./../../Context/AuthProvider/AuthProvider";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
@@ -136,17 +136,6 @@ function Navbar() {
                 Social Media
               </li>
             </button>
-
-            {!user ? null : (
-              <div className="border flex">
-                <li
-                  onClick={openPostModal}
-                  className="border w-[80px] h-[27px] text-center text-[15px] bg-blue-600 rounded text-white hover:bg-red-500 cursor-pointer"
-                >
-                  + Post
-                </li>{" "}
-              </div>
-            )}
           </ul>
         </div>
       </div>
@@ -250,7 +239,6 @@ function Navbar() {
       </div>
       {showModal && <ModalRegister closeModal={closeModal} />}
       {showLoginModal && <ModalLogin closeModal={closeModal} />}
-      {showPostModal && <Post closeModal={closeModal} />}
     </div>
   );
 }
