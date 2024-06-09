@@ -5,6 +5,7 @@ import { cardsData } from "./cardData";
 import MissingCard from "./MissingCard";
 
 function Infinitemovingcard() {
+
   return (
     <Marquee>
       <div className="flex items-center justify-center gap-3 py-5">

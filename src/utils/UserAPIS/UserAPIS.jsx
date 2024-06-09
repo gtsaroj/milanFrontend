@@ -1,8 +1,6 @@
 import axios from "axios";
 import { toast } from "react-toastify";
 
-export const backendBaseUrl = "http://localhost:5000";
-
 export const registerUser = async (data) => {
   try {
     const response = await axios.post(
@@ -59,16 +57,15 @@ export const createData = async (data, token) => {
 };
 export const getdata = async () => {
   try {
-    return await axios.get(
-      // "http://localhost:5000/api/getdata"
-      `${import.meta.env.VITE_URL}/getdata`
-      // "https://milanbackend-7gvf.onrender.com/api/getdata"
-    );
+    const response = await axios.get(`${import.meta.env.VITE_URL}/getdata`);
+    const responseData = await response.data;
+    return await responseData;
   } catch (error) {
     console.log(error);
     toast.error(error.response.data.message);
   }
 };
+
 export const getUserData = async (userId) => {
   try {
     const token = localStorage.getItem("token");
@@ -181,7 +178,7 @@ export const addLocation = async (data) => {
     // Send the modified data object in the request
     return await axios({
       method: "post",
-      url: import.meta.env.VITE_URL+"/addlocation",
+      url: import.meta.env.VITE_URL + "/addlocation",
       data: requestData,
       headers: headers,
     });

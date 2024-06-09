@@ -49,7 +49,7 @@ function Paymentdis() {
       <div className="flex flex-col justify-center items-center h-screen">
         <img src="/images/app.jpeg" className="w-70 h-80" alt="Your Image" />
         <p className="text-2xl font-bold text-red-500">
-          <i class="bi bi-currency-rupee"></i>1699
+          <i className="bi bi-currency-rupee"></i>1699
         </p>
         <p>Please Scan This Qr Code And Make Payment</p>
         <p>

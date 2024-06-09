@@ -83,14 +83,14 @@ function Navbar() {
               <span className="z-10">
                 <i className="bi bi-x-lg"></i>
               </span>
-              <div className=" flex flex-col items-center justify-center text-[15px] absolute lg:static bg-gray-500 left-0 right-0 md:mt-[130px] md:w-auto text-center">
-                <Link to="/Home">
+              <div className=" py-2 flex flex-col items-center justify-center text-[15px] absolute lg:static bg-white left-0 right-0 md:mt-[130px] md:w-auto text-center">
+                <Link className="hover:bg-slate-400 w-full rounded-sm duration-150" to="/Home">
                   <span>Home</span>
                 </Link>
-                <button onClick={handalClick}>
+                <button className="hover:bg-slate-400 w-full rounded-sm duration-150" onClick={handalClick}>
                   <span>Social Media</span>
                 </button>
-                <button onClick={scrollToFooter}>
+                <button className="hover:bg-slate-400 w-full rounded-sm duration-150" onClick={scrollToFooter}>
                   <span>About</span>
                 </button>
               </div>
@@ -103,13 +103,6 @@ function Navbar() {
         </div>
       </div>
       <div className="flex justify-around items-center   w-[50vw] h-[60px] ml-8">
-        <p
-          className="border bg-red-500 hover:bg-red-700 px-6 lg:hidden md:hidden rounded py-1 m-2 text-white cursor-pointer"
-          onClick={handelPost}
-        >
-          + viral
-        </p>
-
         <div className="lg:text-red-600 hidden sm:inline-hidden lg:inline-block sm:text-white  text-[25px] font-serif font-extrabold md:flex z-10">
           <img
             src="/images/Miilan.png"

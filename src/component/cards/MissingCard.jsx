@@ -2,7 +2,6 @@
 import { Radio } from "lucide-react";
 
 const MissingCard = ({ card }) => {
-    console.log(card)
   return (
     <div
     key={card.id}
