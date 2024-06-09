@@ -75,7 +75,7 @@ function Navbar() {
       {/* //mobile responsive */}
       <div className="block md:hidden z-10 ">
         <div
-          className=" font-extrabold text-3xl m-2 cursor-pointer text-white "
+          className=" font-extrabold text-3xl m-2 cursor-pointer text-black "
           onClick={() => setOpen(!open)}
         >
           {open ? (
@@ -151,7 +151,7 @@ function Navbar() {
         </div>
       </div>
       <div className="flex justify-around items-center w-[20vw] h-[60px] ">
-        <Menu as="div" className="relative inline-block text-left">
+        <Menu  as={"div"} className="relative inline-block text-left">
           <div>
             <Menu.Button className="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
               <i className="bi bi-person-circle"></i>

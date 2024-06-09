@@ -114,7 +114,7 @@ function Dashbord() {
               {userData?.length > 0 ? (
                 userData.map((user, index) => (
                   <div
-                    className=" relative group/update sm:w-fit w-full flex md:flex-row flex-col items-start  p-1 gap-5 justify-center bg-[#e4e1e1] rounded "
+                    className=" relative group/update sm:w-fit w-full flex md:flex-row flex-col items-start  p-5 gap-5 justify-center bg-[#e4e1e1] rounded "
                     key={index}
                   >
                     <div className=" w-full sm:w-[350px]  h-[195px]">

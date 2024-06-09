@@ -2,8 +2,8 @@ import React from "react";
 
 function Artical() {
   return (
-    <div className=" w-full lg:h-[1000px]   items-center">
-      <div className="flex  justify-around items-center mt-10">
+    <div className=" w-full flex flex-col items-center justify-center lg:h-[1000px] ">
+      <div className=" w-full flex sm:flex-row flex-col  justify-around items-center mt-10">
         <img
           src=" /images/cuting.png"
           alt=""
@@ -15,16 +15,18 @@ function Artical() {
           NCRB data
         </p>
       </div>
-      <div className="flex  justify-around items-center mt-5">
+      <div className="flex sm:flex-row flex-col-reverse w-full  justify-around items-center mt-5">
         <p className=" lg:text-2xl sm:text-xl text-center mb-4">
           Tracing of missing persons is <br /> Relatively higher in southern
           indian states
         </p>
+        <div className="sm:w-[500px] w-full">
         <img
           src=" /images/Map.avif"
           alt=""
-          className="lg:w-[500px] sm:w-[200px]"
+          className="w-full h-full"
         />
+      </div>
       </div>
     </div>
   );
