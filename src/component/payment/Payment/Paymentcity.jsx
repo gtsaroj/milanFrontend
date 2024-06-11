@@ -50,7 +50,7 @@ function Paymentcity() {
       <div className="flex flex-col justify-center items-center h-screen">
         <img src={paymentImg} className="w-70 h-80" alt="Your Image" />
         <p className="text-2xl font-bold text-red-500">
-          <i className="bi bi-currency-rupee"></i>1299
+          <i className="bi bi-currency-rupee"></i>999
         </p>
         <p>Please Scan This Qr Code And Make Payment</p>
         <p>

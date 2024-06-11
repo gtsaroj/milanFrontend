@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { paymentRecive } from "../../../utils/UserAPIS/UserAPIS";
 import ClipLoader from "react-spinners/ClipLoader";
+import PaymentImg from "../../../../public/images/payment.jpeg";
 
 function Payment() {
   const navigate = useNavigate();
@@ -49,9 +50,9 @@ function Payment() {
   return (
     <>
       <div className="flex flex-col justify-center items-center h-screen">
-        <img src="/images/app.jpeg" className="w-70 h-80" alt="Your Image" />
+        <img src={PaymentImg} className="w-70 h-80" alt="Your Image" />
         <p className="text-2xl font-bold text-red-500">
-          <i class="bi bi-currency-rupee"></i>2999
+          <i className="bi bi-currency-rupee"></i>1999
         </p>
         <p>Please Scan This Qr Code And Make Payment</p>
         <p>

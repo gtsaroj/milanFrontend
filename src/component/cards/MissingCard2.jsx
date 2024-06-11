@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import { Eye, HeartHandshake, Radio } from "lucide-react";
 const MissingCard2 = ({ card }) => {
+  console.log(card)
   return (
     <div className="bg-slate-50 sm:w-[400px] w-[350px] min-w-[300px]   flex flex-col items-center gap-4 justify-center border border-solid border-gray-400 rounded-lg ">
       <div className="w-full bg-red-600 text-center  py-4 rounded-t px-2">

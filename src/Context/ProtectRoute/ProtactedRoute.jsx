@@ -5,8 +5,6 @@ import { Outlet } from "react-router-dom";
 const ProtectedRoute = () => {
   const { user } = useAuth();
 
-  return user ? <Outlet /> : <div className="w-full h-[100vh] text-3xl flex items-center justify-center ">
-    Unauthorized access
-  </div>;
+  return user ? <Outlet /> : <Navigate to={"/register"} replace/>
 };
 export default ProtectedRoute;

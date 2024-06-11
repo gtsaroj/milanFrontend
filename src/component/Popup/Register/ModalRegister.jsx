@@ -37,7 +37,7 @@ function ModalRegister({ closeModal }) {
     if (formData.number.length !== 10) {
       newErrors.number = "Enter a valid number (exactly 10 digits)";
     }
-    if (!/^[a-zA-Z]+$/.test(formData.username)) {
+    if (!/^[A-Za-z &]+$/.test(formData.username)) {
       newErrors.username = "Username can only contain alphabetic characters";
     } else if (formData.username.length === 0) {
       newErrors.username = "Enter a valid name";
@@ -84,8 +84,6 @@ function ModalRegister({ closeModal }) {
         console.log("Invalid response format:", response);
         toast.error("Invalid response format");
       }
-
-      closeModal();
       setLoading(false);
     } catch (error) {
       setLoading(false);
@@ -102,7 +100,7 @@ function ModalRegister({ closeModal }) {
     >
       <div>
         <div onClick={closeModal}>
-          <i class="bi bi-x-lg"></i>
+          <i className="bi bi-x-lg"></i>
         </div>
         <div className="text-center font-bold text-xl">
           <h1>Register</h1>

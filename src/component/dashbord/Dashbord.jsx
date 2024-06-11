@@ -3,7 +3,14 @@ import { getUserData, deleteData } from "../../utils/UserAPIS/UserAPIS";
 import ClipLoader from "react-spinners/HashLoader";
 import { Link } from "react-router-dom";
 import { useMemo } from "react";
-import { BadgeDollarSign, Delete, Edit, Trash } from "lucide-react";
+import {
+  BadgeDollarSign,
+  Delete,
+  Edit,
+  Facebook,
+  Instagram,
+  Trash,
+} from "lucide-react";
 
 function Dashbord() {
   const [userData, setUserData] = useState(null);
@@ -138,17 +145,36 @@ function Dashbord() {
                       <p className="text-sm">Others : {user.others}</p>
                       <p className="text-sm"> Price : {user.prize} </p>
                     </div>
-                    <div className=" transition-all cursor-pointer group-hover/update:visible invisible text-white text-sm absolute left-0 right-0 rounded flex items-center justify-center gap-7 top-0 bottom-0  w-full bg-[#0000005b] ">
-                      <button className="bg-red-400 hover:bg-red-500 transition-all rounded p-1">
-                        <Edit className="size-5" />
-                      </button>
-                      <button className="bg-red-400 hover:bg-red-500 transition-all rounded p-1">
-                        <Trash  className="size-5"/>{" "}
-                      </button>
-                      <button className="flex items-center justify-center gap-1 bg-red-400 hover:bg-red-500 transition-all rounded p-1">
-                        <BadgeDollarSign className="size-5" />
-                        <span>Payment</span>
-                      </button>
+                    <div className=" transition-all cursor-pointer group-hover/update:visible invisible text-white text-sm absolute left-0 right-0 rounded flex flex-col items-center justify-center gap-7 top-0 bottom-0  w-full bg-[#0000005b] ">
+                      <div className="flex items-center gap-3 justify-center">
+                        <button className="bg-red-400 hover:bg-red-500 transition-all rounded p-1">
+                          <Edit className="size-5" />
+                        </button>
+                        <button className="bg-red-400 hover:bg-red-500 transition-all rounded p-1">
+                          <Trash className="size-5" />{" "}
+                        </button>
+                        <button className="flex items-center justify-center gap-1 bg-red-400 hover:bg-red-500 transition-all rounded p-1">
+                          <BadgeDollarSign className="size-5" />
+                          <span>Payment</span>
+                        </button>
+                      </div>
+                      <div className="flex items-center justify-center gap-3">
+                        <a
+                          className="bg-red-400 hover:bg-red-500 transition-all rounded p-1"
+                          href="https://www.facebook.com/profile.php?id=61557895856171"
+                          target="_blank"
+                        >
+                          {" "}
+                          <Facebook className="size-5" />
+                        </a>
+                        <a
+                          className="bg-red-400 hover:bg-red-500 transition-all rounded p-1"
+                          href="https://www.instagram.com/miilanindia"
+                          target="_blank"
+                        >
+                          <Instagram className="size-5" />
+                        </a>
+                      </div>
                     </div>
                   </div>
                 ))
