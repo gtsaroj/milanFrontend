@@ -2,11 +2,11 @@
 import { Eye, HeartHandshake, Radio } from "lucide-react";
 const MissingCard2 = ({ card }) => {
   return (
-    <div className="bg-slate-50  sm:w-auto flex flex-col items-center gap-4 justify-center border border-solid border-gray-400 rounded-lg ">
-      <div className="bg-red-600 text-center sm:w-[250px] w-[350px] min-w-[300px] py-4 rounded-t px-2">
-        <h1 className="text-white text-3xl">MISSING</h1>
+    <div className="bg-slate-50 sm:w-[400px] w-[350px] min-w-[300px]   flex flex-col items-center gap-4 justify-center border border-solid border-gray-400 rounded-lg ">
+      <div className="w-full bg-red-600 text-center  py-4 rounded-t px-2">
+        <h1 className="text-white text-3xl w-full">MISSING</h1>
       </div>
-      <div className="sm:w-[200px] w-[300px]   border-[2px] border-white h-[200px] sm:h-[150px]">
+      <div className="sm:w-[300px] w-[300px]   border-[2px] border-white h-[250px]">
         <img src={card.imageone} className="w-full h-full rounded" alt="" />
       </div>
       <div className="flex items-end justify-between gap-2 w-full px-2 py-3">

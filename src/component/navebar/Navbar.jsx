@@ -5,7 +5,6 @@ import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import { Link } from "react-router-dom";
 import ModalRegister from "../Popup/Register/ModalRegister";
 import ModalLogin from "../Popup/ModalLogin/ModalLogin";
-import Locations from "../Popup/Locations/Locations";
 
 import { AuthContext } from "./../../Context/AuthProvider/AuthProvider";
 import { useContext } from "react";
@@ -35,9 +34,6 @@ function Navbar() {
     setShowLoginModal(true);
   };
 
-  const openPostModal = () => {
-    setShowPostModal(true);
-  };
 
   const closeModal = () => {
     setShowModal(false);
@@ -48,17 +44,10 @@ function Navbar() {
     if (!user) {
       openModal();
     } else {
-      navigate("/LivePage");
+      navigate("livepage");
     }
   };
 
-  const handelPost = () => {
-    if (!user) {
-      openModal();
-    } else {
-      openPostModal();
-    }
-  };
   const scrollToFooter = () => {
     window.scrollTo({
       top: document.documentElement.scrollHeight,
@@ -84,7 +73,7 @@ function Navbar() {
                 <i className="bi bi-x-lg"></i>
               </span>
               <div className=" py-2 flex flex-col items-center justify-center text-[15px] absolute lg:static bg-white left-0 right-0 md:mt-[130px] md:w-auto text-center">
-                <Link className="hover:bg-slate-400 w-full rounded-sm duration-150" to="/Home">
+                <Link className="hover:bg-slate-400 w-full rounded-sm duration-150" to="/">
                   <span>Home</span>
                 </Link>
                 <button className="hover:bg-slate-400 w-full rounded-sm duration-150" onClick={handalClick}>
@@ -113,7 +102,7 @@ function Navbar() {
 
         <div className="hidden md:block ">
           <ul className="flex justify-evenly items-center text-[15px] font-bold w-[40vw] h-[40px] m-2 ">
-            <Link to="/Home">
+            <Link to="/">
               <li className="hover:underline cursor-pointer underline-offset-8 decoration-4 decoration-blue-500 m-5">
                 Home
               </li>
@@ -192,7 +181,7 @@ function Navbar() {
                   <Fragment>
                     <Menu.Item>
                       {({ active }) => (
-                        <Link to={"/Dashbord"}>
+                        <Link to={"Dashbord/"}>
                           <p
                             className={classNames(
                               active

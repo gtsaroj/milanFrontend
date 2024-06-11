@@ -1,12 +1,7 @@
 import React, { useState } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import CountUp from "react-countup";
-import ScrollTriggerComponent from "react-scroll-trigger";
-import { Autoplay, Pagination, Navigation } from "swiper/modules";
-import Footer from "../footer/Footer";
 import Live from "../live/Live";
 import Header from "../header/Header";
 import Artical from "../content/articalsection/Artical";
@@ -15,12 +10,11 @@ import Happycounter from "../content/counter/Happycounter";
 import SuccessStory from "../congresbord/SuccessStory";
 
 function Main() {
-  const [counter, setCounter] = useState(false);
   return (
     <div>
       <Header />
-      <div className="w-full h-[100vh]">
-        <div className="w-full lg:h-[800px] ">
+      <div className="w-full ">
+        <div className="w-full ">
           <div className=" w-full bg-slate-800 py-16 flex items-center justify-center">
             <div className="w-[90%] text-white flex flex-col items-center gap-y-5 md:gap-y-12">
               <div className="flex flex-col items-center justify-center gap-y-5">
@@ -48,7 +42,6 @@ function Main() {
         <Happycounter />
         <SuccessStory />
         <Live />
-        <Footer />
       </div>
     </div>
   );

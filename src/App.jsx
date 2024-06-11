@@ -1,65 +1,40 @@
 import "./App.css";
-import { Navigate, Routes, Route } from "react-router-dom";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Home from "./pages/mainpage/Home";
-import PaymentPage from "./pages/payment/Paymentstate/PaymentPage";
-import Districtpage from "./pages/payment/paymentdistic/Districtpage";
-import Paymentcitypage from "./pages/payment/paymentcity/Paymentcitypage";
-import LivePage from "./pages/LivePage/LivePage";
+import LiveDashboard from "./component/live/LiveDashbord";
 import Dashbord from "./component/dashbord/Dashbord";
-import { AuthProvider } from "./Context/AuthProvider/AuthProvider";
 import ProtectedRoute from "./Context/ProtectRoute/ProtactedRoute";
+import Main from "./component/main/Main";
+import Paymentdis from "./component/payment/Payment/Paymentdis";
+import Paymentcity from "./component/payment/Payment/Paymentcity";
+import Payment from "./component/payment/Payment/Payment";
+
+export const HomePage = () => {};
 
 function App() {
   return (
-    <div className="">
-      <AuthProvider>
-        
-        <Routes>
-          <Route path="/" element={<Navigate to="/Home" />} />
-          <Route path="/Home" element={<Home />} />
-          <Route
-            path="/LivePage"
-            element={
-              <ProtectedRoute>
-                <LivePage />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/PaymentPage"
-            element={
-              <ProtectedRoute>
-                <PaymentPage />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/Districtpage"
-            element={
-              <ProtectedRoute>
-                <Districtpage />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/Paymentcitypage"
-            element={
-              <ProtectedRoute>
-                <Paymentcitypage />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/Dashbord"
-            element={
-              <ProtectedRoute>
-                <Dashbord />
-              </ProtectedRoute>
-            }
-          />
-        </Routes>
-      </AuthProvider>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />}>
+          <Route index element={<Main />} />
+          <Route element={<ProtectedRoute />}>
+            <Route path="livepage/" element={<LiveDashboard />} />
+          </Route>
+          <Route element={<ProtectedRoute />}>
+            <Route path="/PaymentPage" element={<Payment />} />
+          </Route>
+          <Route element={<ProtectedRoute />}>
+            <Route path="/Districtpage" element={<Paymentdis />} />
+          </Route>
+          <Route element={<ProtectedRoute />}>
+            <Route path="/Paymentcitypage" element={<Paymentcity />} />
+          </Route>
+          <Route element={<ProtectedRoute />}>
+            <Route path="/Dashbord" element={<Dashbord />} />
+          </Route>
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 

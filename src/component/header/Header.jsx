@@ -51,7 +51,7 @@ function Header() {
   };
   return (
     <>
-      <div className="w-full h-[600px] relative  ">
+      <div className="w-full relative  ">
         <img
           src="/images/misssing.jpg"
           className="w-[100vw] overflow-hidden  bg-cover bg-no-repeat  brightness-50 h-[60vh] md:w-[100vw] md:h-[100vh]   "
